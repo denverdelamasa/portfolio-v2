@@ -1,5 +1,7 @@
 import Link from "next/link";
 import avatar from "../assets/avatar.png";
+import Image from 'next/image';
+
 export default function Navbar() {
 
   return (
@@ -18,8 +20,12 @@ export default function Navbar() {
             <Link className="btn btn-sm my-auto badge" href="/#contact">Contact</Link>
           </ul>
         </div>
-        <button className="btn btn-ghost text-xl">
-          <img href="website avatar" src={avatar}/>
+        <button className="btn btn-ghost text-xl p-0">
+          <Image       
+          src={avatar}
+          alt="Picture of the author"
+          className="w-full h-full"
+        />
         </button>
       </div>
       <div className="navbar-center hidden lg:flex">
