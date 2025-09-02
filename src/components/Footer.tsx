@@ -1,7 +1,7 @@
 export default function Footer() {
 
   return (
-    <footer className="flex lg:px-12 w-full h-[40vh] text-start items-center  ">
+    <footer className="flex lg:px-12 w-full h-[40vh] text-start items-center p-8 text-xs border-t-1 border-base-300 shadow-2xl">
         <aside>
             <p>
               Designed in Excalidraw <br />

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar() {
 
   return (
-    <div className="lg:px-12 navbar bg-base-100 shadow-sm">
+    <div className="lg:px-12 navbar shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -13,11 +13,11 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <Link className="btn btn-sm my-auto badge" href="/#projects">Projects</Link>
-            <Link className="btn btn-sm my-auto badge" href="/#experiences">Experiences</Link>
-            <Link className="btn btn-sm my-auto badge" href="/#advancements">Advancements</Link>
-            <Link className="btn btn-sm my-auto badge" href="/#contact">Contact</Link>
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <Link className="btn btn-sm my-auto" href="/#projects">Projects</Link>
+            <Link className="btn btn-sm my-auto" href="/#experiences">Experiences</Link>
+            <Link className="btn btn-sm my-auto" href="/#advancements">Advancements</Link>
+            <Link className="btn btn-sm my-auto" href="/#contact">Contact</Link>
           </ul>
         </div>
         <button className="btn btn-ghost text-xl p-0">
@@ -30,14 +30,13 @@ export default function Navbar() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-x-4">
-            <Link className="btn btn-sm my-auto badge" href="/#projects">Projects</Link>
-            <Link className="btn btn-sm my-auto badge" href="/#experiences">Experiences</Link>
-            <Link className="btn btn-sm my-auto badge" href="/#advancements">Advancements</Link>
-            <Link className="btn btn-sm my-auto badge" href="/#contact">Contact</Link>
+            <Link className="my-auto hover:scale-90" href="/#projects">Projects</Link>
+            <Link className="my-auto hover:scale-90" href="/#experiences">Experiences</Link>
+            <Link className="my-auto hover:scale-90" href="/#advancements">Advancements</Link>
+            <Link className="my-auto hover:scale-90" href="/#contact">Contact</Link>
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn">Button</button>
       </div>
     </div>
   );

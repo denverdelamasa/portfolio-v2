@@ -1,8 +1,86 @@
+import Image from "next/image";
+import profile from "../../assets/profile.webp";
+
 export default function ProfileCard() {
 
   return (
-    <section id="profile" className="flex text-3xl w-full h-full object-center justify-center text-center items-center  ">
-      Profile Card
+    <section id="profile" className="flex flex-col text-3xl w-full h-full items-center justify-start p-8 gap-y-2">
+      <div className="card w-86 lg:w-92 shadow-xl bg-base-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+        <figure className="pt-4 px-4">
+            <div className="w-full h-32 bg-gradient-to-r from-primary to-secondary rounded-t-xl"></div>
+        </figure>
+        
+        <div className="relative -mt-15 mx-auto">
+            <div className="avatar online">
+                <div className="w-24 rounded-full">
+                    <Image src={profile} alt="Profile Avatar" />
+                </div>
+            </div>
+        </div>
+
+        <div className="card-body items-center text-center">
+            <div className="flex justify-center items-center gap-2 mb-2">
+                <h2 className="card-title text-2xl">Denver Dela Masa</h2>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2">
+              <div className="badge badge-sm mb-4 badge-primary">Web Dev</div>
+              <div className="badge badge-sm mb-4 badge-primary">Illustrator</div>
+              <div className="badge badge-sm mb-4 badge-primary">Tech Support</div>
+            </div>
+            
+            <p className="mb-4">
+                Passionate about designing and building websites, creating illustrations, and providing tech support.
+            </p>
+
+            <div className="card-actions justify-center mb-4">
+                <button className="btn btn-primary btn-sm rounded-full px-6">
+                  Resume
+                </button>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="btn btn-xs btn-outline">
+                Instagram</div>
+              <div className="btn btn-xs btn-outline">LinkedIn</div>
+              <div className="btn btn-xs btn-outline">Email</div>
+              <div className="btn btn-xs btn-outline">uiverse</div>
+              <div className="btn btn-xs btn-outline">Github</div>
+            </div>
+        </div>
+      </div>
     </section>
   );
 }
+
+{`
+
+
+      <div className="card p-4 w-auto h-auto flex flex-col gap-4">
+        <div className="card-body card-side w-full h-auto p-2">
+          <div className="avatar flex items-center">
+              <div className="w-32 h-fit rounded-full m-auto">
+                <Image
+                  src={profile}
+                  alt="profile picture" 
+                />
+              </div>
+          </div>
+          <div className="card-body text-md">
+            <p>
+              Hi, I’m <strong>Denver</strong>. I design and build websites, 
+              create illustrations, and provide tech support.
+            </p>
+          </div>
+        </div>
+        <div className="w-full h-auto p-2">
+          <div className="flex flex-wrap gap-2">
+            <div className="badge badge-lg badge-outline">Instagram</div>
+            <div className="badge badge-lg badge-outline">LinkedIn</div>
+            <div className="badge badge-lg badge-outline">Email</div>
+            <div className="badge badge-lg badge-outline">uiverse</div>
+            <div className="badge badge-lg badge-outline">Github</div>
+          </div>
+        </div>
+      </div>
+
+`}
