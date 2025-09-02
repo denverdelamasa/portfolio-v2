@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="hero-content text-center">
         <div className="max-w-2xl text-start">
           <p className="text-lg">
-            Hi! I'm
+            Hi! I am
           </p>
           <h1 className="text-7xl font-extrabold mb-2">
             Denver Dela Masa
@@ -21,6 +21,5 @@ export default function Hero() {
         </div>
       </div>
     </div>
-
   );
 }

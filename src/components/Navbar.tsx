@@ -1,6 +1,6 @@
 import Link from "next/link";
 import avatar from "../assets/avatar.png";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Navbar() {
 
