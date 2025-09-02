@@ -1,7 +1,0 @@
-@import "tailwindcss";
-@plugin "daisyui";
-
-/*just to be sure */
-body {
-  font-family: var(--font-inter), sans-serif;
-}

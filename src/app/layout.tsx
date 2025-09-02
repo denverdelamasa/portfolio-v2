@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../styles/globals.css";
 import { Inter } from "next/font/google";
 
 import Navbar from "../components/Navbar";
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="retro">
+    <html lang="en" data-theme="retro" className="bg-noise">
       <body className={`${inter.variable} antialiased`}>
         <header>
           <Navbar />

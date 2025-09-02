@@ -1,22 +1,23 @@
 import ProfileCard from "@/components/homepage/ProfileCard";
 import Content from "@/components/homepage/Content";
 import Contact from "@/components/homepage/Contact";
+import Hero from "@/components/homepage/Hero";
 
 export default function Home() {
   return (
-    <main className="px-12">
-      <section className="flex h-[90vh] text-7xl w-full border-5 border-accent text-center justify-center items-center">
-        Hero section
+    <main className="">
+      <section className="flex h-[90vh] text-7xl w-full text-center justify-center items-center">
+        <Hero />
       </section>
-      <section className="flex flex-row gap-x-2">
-        <aside className="w-2/5 sticky top-0 h-[100vh]">
+      <section className="flex flex-col lg:flex-row gap-x-2">
+        <aside className="w-full lg:w-2/5 lg:sticky lg:top-0 h-[100vh]">
           <ProfileCard />
         </aside>
-        <section className="w-3/5">
+        <section className="w-full lg:w-3/5">
           <Content />
         </section>
       </section>
-      <section className="flex h-[100vh] text-7xl w-full border-5 border-accent text-center justify-center items-center">
+      <section className="flex h-[100vh] text-7xl w-full text-center justify-center items-center">
         <Contact />
       </section>
     </main>

@@ -1,8 +1,8 @@
 export default function Contact() {
 
   return (
-    <div className="flex flex-col">
-        Contact
-    </div>
+    <section id="contact" className="w-full h-full flex flex-col items-center justify-center text-center align-middle">
+      Contact
+    </section>
   );
 }

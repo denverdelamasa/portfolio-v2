@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@plugin "daisyui"; /* really stayed up late just cause I typed "UI" instead of "ui" </3 */
+
+/*just to be sure */
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* background-color: #100f0f; */
+}
+
+.bg-noise {
+  position: relative;
+  background-color: hsl(var(--b1));
+}
+
+.bg-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("../assets/noise-bg.webp");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.03; /* Adjust noise intensity */
+  mix-blend-mode: exclusion;
+  z-index: -2;
+}
