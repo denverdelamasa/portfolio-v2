@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="hero bg-base-300 h-full w-full">
+    <div className="hero bg-base-200 h-full w-full">
       <div className="hero-content text-center">
         <div className="max-w-2xl text-start">
           <p className="text-lg">
             Hi! I am
           </p>
-          <h1 className="text-7xl lg:text-7xl font-bold mb-2">
+          <h1 className="text-6xl lg:text-7xl font-bold mb-2">
             Denver Dela Masa
           </h1>
           <h2 className="text-lg lg:text-2xl font-semibold mb-2">
