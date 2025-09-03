@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="coffee" className="bg-noise]">
+    <html lang="en" data-theme="coffee" className="">
       <body className={`${inter.variable} antialiased`}>
         <header>
           <Navbar />
