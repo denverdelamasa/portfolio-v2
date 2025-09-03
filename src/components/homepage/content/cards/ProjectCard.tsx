@@ -17,8 +17,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   buttonText = "Learn More",
 }) => {
   return (
-    <div className="card card-side bg-base-200 shadow-xl border-1 border-primary">
-      <figure className="p-4 w-48 h-48 flex items-center justify-center overflow-hidden align-middle m-auto">
+    <div className="card md:card-side bg-base-200 shadow-xl border-1 border-primary">
+      <figure className="p-4 md:w-48 md:h-48 flex items-center justify-center overflow-hidden align-middle m-auto">
         <Image
           src={imageUrl}
           alt={title}

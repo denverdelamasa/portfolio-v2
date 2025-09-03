@@ -4,8 +4,8 @@ import profile from "../../assets/profile.webp";
 export default function ProfileCard() {
 
   return (
-    <section id="profile" className="flex flex-col text-3xl w-full h-full items-center justify-start gap-y-2">
-      <div className="m-auto card w-86 lg:w-92 shadow-xl bg-base-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+    <section id="profile" className="flex flex-col text-3xl h-full items-center justify-start gap-y-2">
+      <div className="m-auto card w-76 lg:w-92 shadow-xl bg-base-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
         <figure className="pt-4 px-4">
             <div className="w-full h-32 bg-gradient-to-r from-primary to-warning rounded-t-xl"></div>
         </figure>
