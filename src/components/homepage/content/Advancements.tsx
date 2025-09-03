@@ -7,7 +7,7 @@ export default function Contributing() {
           Learning & Contributing
         </h1>
         <p className="text-xs lg:text-lg max-w-prose">
-          A peek at the projects and what I am tackling as I keep learning and growing, and what I'm up to recently
+          A peek at the projects and what I am tackling as I keep learning and growing, and what I am up to recently
         </p>
         
       </div>
