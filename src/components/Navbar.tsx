@@ -16,11 +16,11 @@ export default function Navbar() {
         </button>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-x-4">
-            <Link className="my-auto hover:scale-90" href="/#projects">Projects</Link>
-            <Link className="my-auto hover:scale-90" href="/#experiences">Experiences</Link>
-            <Link className="my-auto hover:scale-90" href="/#advancements">Advancements</Link>
-            <Link className="my-auto hover:scale-90" href="/#contact">Contact</Link>
+        <ul className="menu menu-horizontal px-1 gap-x-8">
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#projects">Projects</Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#experiences">Experiences</Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#advancements">Advancements</Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#contact">Contact</Link>
         </ul>
       </div>
       <div className="navbar-end">        

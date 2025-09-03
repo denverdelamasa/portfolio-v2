@@ -51,36 +51,3 @@ export default function ProfileCard() {
     </section>
   );
 }
-
-{`
-
-
-      <div className="card p-4 w-auto h-auto flex flex-col gap-4">
-        <div className="card-body card-side w-full h-auto p-2">
-          <div className="avatar flex items-center">
-              <div className="w-32 h-fit rounded-full m-auto">
-                <Image
-                  src={profile}
-                  alt="profile picture" 
-                />
-              </div>
-          </div>
-          <div className="card-body text-md">
-            <p>
-              Hi, I’m <strong>Denver</strong>. I design and build websites, 
-              create illustrations, and provide tech support.
-            </p>
-          </div>
-        </div>
-        <div className="w-full h-auto p-2">
-          <div className="flex flex-wrap gap-2">
-            <div className="badge badge-lg badge-outline">Instagram</div>
-            <div className="badge badge-lg badge-outline">LinkedIn</div>
-            <div className="badge badge-lg badge-outline">Email</div>
-            <div className="badge badge-lg badge-outline">uiverse</div>
-            <div className="badge badge-lg badge-outline">Github</div>
-          </div>
-        </div>
-      </div>
-
-`}
