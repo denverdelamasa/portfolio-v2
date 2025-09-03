@@ -17,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   buttonText = "Learn More",
 }) => {
   return (
-    <div className="card md:card-side bg-base-200 shadow-xl border-1 border-primary">
+    <div className="card md:card-side hover:bg-base-200 hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-xl hover:border-1 hover:border-primary">
       <figure className="p-4 md:w-48 md:h-48 flex items-center justify-center overflow-hidden align-middle m-auto">
         <Image
           src={imageUrl}
