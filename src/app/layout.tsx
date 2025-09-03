@@ -1,13 +1,27 @@
 import "../styles/globals.css";
+import "../styles/fonts.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import { Inter } from "next/font/google";
-
+import { Inter, DM_Sans, Ubuntu } from "next/font/google";
+// Configure your fonts
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["400", "500", "700"], // Include weights you need
+});
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  variable: "--font-ubuntu",
+  weight: ["300", "400", "500", "700"],
 });
 
 export default function RootLayout({
@@ -17,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="coffee" className="">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${dmSans.variable} ${ubuntu.variable} antialiased`}>
         <header>
           <Navbar />
         </header>

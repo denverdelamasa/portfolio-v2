@@ -1,0 +1,14 @@
+:root {
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-ubuntu: "Ubuntu", sans-serif;
+}
+
+body {
+    font-family: var(--font-ubuntu);
+    letter-spacing: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-dm-sans);
+    letter-spacing: -2px;
+}
