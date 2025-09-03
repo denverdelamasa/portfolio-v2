@@ -1,0 +1,43 @@
+import React from "react";
+import Image, { StaticImageData } from "next/image";
+
+type AdvancementCardProps = {
+  title: string;
+  description: string;
+  imageUrl: string | StaticImageData;
+  badges?: string[];
+  buttonText?: string;
+};
+
+const AdvancementCard: React.FC<AdvancementCardProps> = ({
+  title,
+  description,
+  imageUrl,
+  badges = [],
+  buttonText = "Learn More",
+}) => {
+  return (
+    <div className="card md:card-side hover:bg-base-200 hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-xl hover:border-1 hover:border-primary">
+      <figure className="p-4 md:w-82 md:h-52 flex items-center justify-center overflow-hidden align-middle m-auto">
+        <Image
+          src={imageUrl}
+          alt={title}
+          className="rounded-lg object-cover m-auto"
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title text-3xl">{title}</h2>
+        <p className="text-sm text-base-content/80 max-w-prose">{description}</p>
+        <div className="flex flex-wrap gap-2 mt-2 max-w-prose">
+          {badges.map((badge, i) => (
+            <div key={i} className="badge badge-outline">
+              {badge}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AdvancementCard;
