@@ -17,7 +17,10 @@ export default function Hero() {
           <p className="text-xs lg:text-lg max-w-prose mb-4">
             I build responsive websites, make character illustrations, and solve tech problems.
           </p>
-          <Link href="/#profile" className="btn btn-primary btn-lg rounded-lg">My Works</Link>
+          <div className="actions flex flex-row md:flex-row gap-4">
+            <Link href="/#projects" className="btn btn-primary btn-lg rounded-lg">My Works</Link>
+            <Link href="/#profile" className="btn btn-outline btn-lg rounded-lg visible md:hidden">About me</Link>
+          </div>
         </div>
       </div>
     </div>
