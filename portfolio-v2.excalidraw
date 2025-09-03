@@ -7777,7 +7777,7 @@
       "width": 1427.9791030334604,
       "height": 1146.611583251663,
       "angle": 0,
-      "strokeColor": "#e03131",
+      "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 2,
@@ -7791,16 +7791,20 @@
       "index": "b3x8",
       "roundness": null,
       "seed": 773550932,
-      "version": 1317,
-      "versionNonce": 796906315,
+      "version": 1319,
+      "versionNonce": 1152152799,
       "isDeleted": false,
       "boundElements": [
         {
           "id": "NGq6st29ndrH5Spsy7xvB",
           "type": "arrow"
+        },
+        {
+          "id": "NzJJ3fghji7bMNw8Q8jU4",
+          "type": "arrow"
         }
       ],
-      "updated": 1756926195205,
+      "updated": 1756928732396,
       "link": null,
       "locked": false,
       "text": "Must be:\n\n1. Unique - it's okay to use reference, BUT DO NOT COPY THE\nFEATURES AND STRUCTURES!!! Im so sorry viktor eke...\n\n2. concise - stop the yapperfest and just say whatever I need to\n\n3. clear structure - like bro, stop making divs, on divs, on divs,\nBRUH!! very unclear structure.... refer here: \nhttps://klaviyo.tech/5-common-accessibility-pitfalls-and-how-to-\navoid-them-e316dfc55ff0#5658\n\n4. All projects, experiences, and currently learning are gonna be\ncoming from a json file...\n\n5. Currently learning three.js for Potential 3D models in the site\n\n6. instead of a .json (no. 4), we're gonna use props... my dummahh\nforgot about props, and I later realize while I was vibecoding that\nwhat I was planning about why I wanted to use .json, is literally\nwhat props are.... my brain is trying it's best gomenasaur ",
@@ -7833,11 +7837,11 @@
       "index": "b3xG",
       "roundness": null,
       "seed": 1407986023,
-      "version": 1856,
-      "versionNonce": 53630411,
+      "version": 1857,
+      "versionNonce": 143070129,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1756926195205,
+      "updated": 1756928714140,
       "link": null,
       "locked": false,
       "points": [
@@ -8328,7 +8332,7 @@
       "version": 399,
       "versionNonce": 1820781227,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -8880,10 +8884,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        593,
-        -2
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "_W-sVpqOxdvuXuJV8fGS-",
@@ -8908,7 +8909,7 @@
       "version": 325,
       "versionNonce": 357195083,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -9132,10 +9133,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        206,
-        4
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "-SvkOoFFWPWWIY81lZ9CN",
@@ -9160,7 +9158,7 @@
       "version": 378,
       "versionNonce": 1179024363,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -9456,10 +9454,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        783.3333333333335,
-        1290
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "PpguDXlz0g6Xlvqj6ayM6",
@@ -9484,7 +9479,7 @@
       "version": 355,
       "versionNonce": 1267058315,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -9688,10 +9683,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        763.3333333333335,
-        -1166.6666666666665
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "_pC8XEMuSXRITEhiQAO69",
@@ -9716,7 +9708,7 @@
       "version": 426,
       "versionNonce": 197311787,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -10200,10 +10192,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        76.66666666666652,
-        1043.3333333333335
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "L9RfhtCLX4osu-Bw5MqVe",
@@ -10228,7 +10217,7 @@
       "version": 354,
       "versionNonce": 845668299,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -10428,10 +10417,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        386.66666666666697,
-        43.33333333333326
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "pBLUn_W51SLHI7OKsqn7H",
@@ -10456,7 +10442,7 @@
       "version": 363,
       "versionNonce": 428846699,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926195206,
       "link": null,
       "locked": false,
@@ -10692,10 +10678,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        273.3333333333335,
-        -663.3333333333333
-      ]
+      "lastCommittedPoint": null
     },
     {
       "id": "08fSAVyB78CybfPVC4gdi",
@@ -10720,7 +10703,7 @@
       "version": 78,
       "versionNonce": 560426789,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926229497,
       "link": null,
       "locked": false,
@@ -10833,7 +10816,7 @@
       "version": 12,
       "versionNonce": 682267877,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1756926280527,
       "link": null,
       "locked": false,
@@ -10845,6 +10828,147 @@
       "containerId": "Ku1qR5xUoCCg9snepjFhw",
       "originalText": "on click",
       "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "zZidRhAtUNbpcDSAS_Gbb",
+      "type": "rectangle",
+      "x": -2691.354733838347,
+      "y": 1420.4622844469563,
+      "width": 1131.6442307692307,
+      "height": 730.9999999999999,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 2,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "b49",
+      "roundness": null,
+      "seed": 633734481,
+      "version": 178,
+      "versionNonce": 1933703505,
+      "isDeleted": false,
+      "boundElements": [
+        {
+          "id": "NzJJ3fghji7bMNw8Q8jU4",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1756928880321,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "NzJJ3fghji7bMNw8Q8jU4",
+      "type": "arrow",
+      "x": -1427.2515939230377,
+      "y": 1566.2956177802896,
+      "width": 125.98497189911473,
+      "height": 219.56841397849462,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 2,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "b4A",
+      "roundness": null,
+      "seed": 649831295,
+      "version": 217,
+      "versionNonce": 2024412319,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1756928880352,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -63.72945457303945,
+          0
+        ],
+        [
+          -63.72945457303945,
+          219.56841397849462
+        ],
+        [
+          -125.98497189911473,
+          219.56841397849462
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "OUV0xofwuJVM-KjMxaFXI",
+        "focus": -0.828837857716246,
+        "gap": 4.999999999999773,
+        "fixedPoint": [
+          -0.0035014517995244168,
+          0.9144189288581231
+        ]
+      },
+      "endBinding": {
+        "elementId": "zZidRhAtUNbpcDSAS_Gbb",
+        "focus": 1.0114416475972536,
+        "gap": 5,
+        "fixedPoint": [
+          1.005720823798627,
+          0.4998655913978496
+        ]
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": true,
+      "fixedSegments": null,
+      "startIsSpecial": null,
+      "endIsSpecial": null
+    },
+    {
+      "id": "o_yQpB21irjTjBsRfR2QM",
+      "type": "text",
+      "x": -2600.2726024280873,
+      "y": 1470.5428132931102,
+      "width": 994.5076556083487,
+      "height": 615.0240384615385,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 2,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "b4B",
+      "roundness": null,
+      "seed": 675920913,
+      "version": 730,
+      "versionNonce": 1910413585,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1756928880321,
+      "link": null,
+      "locked": false,
+      "text": "\nthe plan now is that, instead of making\nanother file (json), everytime we have an\nupdate we're just gonna pass it as\nprops, that way we have the same result\nas the json plan withou the hassle of\nconnecting it to our component... much\nmore efficient and straight forward while\nmaintainning the same result...\n",
+      "fontSize": 49.20192307692308,
+      "fontFamily": 5,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "\nthe plan now is that, instead of making another file (json), everytime we have an update we're just gonna pass it as props, that way we have the same result as the json plan withou the hassle of connecting it to our component... much more efficient and straight forward while maintainning the same result...\n",
+      "autoResize": false,
       "lineHeight": 1.25
     }
   ],
