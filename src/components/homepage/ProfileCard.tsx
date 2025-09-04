@@ -23,9 +23,9 @@ export default function ProfileCard() {
                 <h2 className="card-title font-bold text-2xl">Denver Dela Masa</h2>
             </div>
             <div className="flex flex-wrap justify-center gap-2">
-              <div className="badge badge-sm mb-4 badge-primary">Web Dev</div>
-              <div className="badge badge-sm mb-4 badge-primary">Illustrator</div>
-              <div className="badge badge-sm mb-4 badge-primary">Tech Support</div>
+              <div className="badge badge-sm mb-4 badge-neutral">Web Dev</div>
+              <div className="badge badge-sm mb-4 badge-neutral">Illustrator</div>
+              <div className="badge badge-sm mb-4 badge-neutral">Tech Support</div>
             </div>
             
             <p className="mb-4">

@@ -3,7 +3,7 @@ import sampleImage from "../../../../public/image.png";
 
 export default function Experiences() {
   return (
-    <section id="experiences" className="hero flex flex-col text-3xl w-full h-auto items-start px-4">
+    <section id="experiences" className="hero flex flex-col text-3xl w-full min-h-[100vh] items-start px-4">
       <div className="hero-content flex flex-col mb-4 items-start text-start">
         <h1 className="text-5xl lg:text-6xl font-bold">
           Experiences
@@ -16,7 +16,7 @@ export default function Experiences() {
             title="Experience Title"
             description="Description here: Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. "
             date="2022 - Present"
-            badges={["Next.js", "TailwindCSS", "DaisyUI", "blablabla"]}
+            badges={["Next.js", "TailwindCSS", "Vercel"]}
           />
         </div>
       </div>

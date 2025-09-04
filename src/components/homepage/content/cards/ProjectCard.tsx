@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <p className="text-sm text-base-content/80 max-w-prose">{description}</p>
         <div className="flex flex-wrap gap-2 mt-2 max-w-prose">
           {badges.map((badge, i) => (
-            <div key={i} className="badge badge-outline">
+            <div key={i} className="badge badge-outline badge-neutral">
               {badge}
             </div>
           ))}

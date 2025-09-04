@@ -4,13 +4,17 @@ import "../styles/fonts.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import { Inter, DM_Sans, Ubuntu } from "next/font/google";
+import { Inter, Outfit, DM_Sans, Ubuntu } from "next/font/google";
 // Configure your fonts
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+});
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -30,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="coffee" className="">
-      <body className={`${inter.variable} ${dmSans.variable} ${ubuntu.variable} antialiased`}>
+    <html lang="en" data-theme="corporate" className="">
+      <body className={`${inter.variable} ${dmSans.variable} ${outfit.variable} ${ubuntu.variable} antialiased`}>
         <header>
           <Navbar />
         </header>

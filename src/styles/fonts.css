@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.hero-title {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -5px;
+}
+
 :root {
+  --font-outfit: "Outfit", sans-serif;
   --font-dm-sans: "DM Sans", sans-serif;
   --font-ubuntu: "Ubuntu", sans-serif;
 }
@@ -9,6 +19,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-dm-sans);
+    font-family: var(--font-outfit);
+    letter-spacing: -1px;
+}
+h1 {
+    font-family: var(--font-outfit);
     letter-spacing: -2px;
 }
