@@ -27,17 +27,28 @@ export default function Navbar() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-x-8">
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100 w-auto h-auto" href="/#projects">
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#projects">
               <i className="bi bi-journal-code"></i>
               Projects
             </Link>
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#experiences">
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#experiences">
+              <i className="bi bi-person-workspace"></i>
               Experiences
             </Link>
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#advancements">
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#advancements">
+              <i className="bi bi-ui-radios"></i>
               Advancements
             </Link>
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#contact">
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#contact">
+              <i className="bi bi-telephone-outbound"></i>
               Contact
             </Link>
         </ul>
