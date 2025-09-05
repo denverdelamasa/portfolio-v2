@@ -1,15 +1,16 @@
 .pattern-square {
 background:
-      repeating-linear-gradient( 45deg,#0000 calc(-650%/13) calc(50%/13),#1e1e1e 0 calc(100%/13),
-      #0000 0 calc(150%/13),#1e1e1e 0 calc(200%/13),
-      #0000 0 calc(250%/13),#1e1e1e 0 calc(300%/13)),repeating-linear-gradient( 45deg,#0000 calc(-650%/13) calc(50%/13),#1e1e1e 0 calc(100%/13),
-      #0000 0 calc(150%/13),#1e1e1e 0 calc(200%/13),
-      #0000 0 calc(250%/13),#1e1e1e 0 calc(300%/13)) 18px 18px,
-      repeating-linear-gradient(-45deg,#0000 calc(-650%/13) calc(50%/13),#1e1e1e 0 calc(100%/13),
-      #0000 0 calc(150%/13),#1e1e1e 0 calc(200%/13),
-      #0000 0 calc(250%/13),#1e1e1e 0 calc(300%/13)),repeating-linear-gradient(-45deg,#0000 calc(-650%/13) calc(50%/13),#1e1e1e 0 calc(100%/13),
-      #0000 0 calc(150%/13),#1e1e1e 0 calc(200%/13),
-      #0000 0 calc(250%/13),#1e1e1e 0 calc(300%/13)) 18px 18px #100f0f;
-background-size: 36px 36px;
+      repeating-linear-gradient( 45deg,#0000 calc(-650%/13) calc(50%/13),#121212 0 calc(100%/13),
+      #0000 0 calc(150%/13),#121212 0 calc(200%/13),
+      #0000 0 calc(250%/13),#121212 0 calc(300%/13)),repeating-linear-gradient( 45deg,#0000 calc(-650%/13) calc(50%/13),#121212 0 calc(100%/13),
+      #0000 0 calc(150%/13),#121212 0 calc(200%/13),
+      #0000 0 calc(250%/13),#121212 0 calc(300%/13)) 50px 50px,
+      repeating-linear-gradient(-45deg,#0000 calc(-650%/13) calc(50%/13),#121212 0 calc(100%/13),
+      #0000 0 calc(150%/13),#121212 0 calc(200%/13),
+      #0000 0 calc(250%/13),#121212 0 calc(300%/13)),repeating-linear-gradient(-45deg,#0000 calc(-650%/13) calc(50%/13),#121212 0 calc(100%/13),
+      #0000 0 calc(150%/13),#121212 0 calc(200%/13),
+      #0000 0 calc(250%/13),#121212 0 calc(300%/13)) 50px 50px #100f0f;
+background-size: 100px 100px;
+
     /* pattern by: ME - 10015.io */
 }
