@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/fonts.css";
+import "../styles/bg-pattern.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -34,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="corporate" className="">
+    <html lang="en" data-theme="black" className="">
       <body className={`${inter.variable} ${dmSans.variable} ${outfit.variable} ${ubuntu.variable} antialiased`}>
         <header>
           <Navbar />

@@ -7,7 +7,7 @@ export default function ProfileCard() {
     <section id="profile" className="flex flex-col text-3xl h-full items-center justify-start gap-y-2">
       <div className="m-auto card w-76 lg:w-92 shadow-xl bg-base-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
         <figure className="pt-4 px-4">
-            <div className="w-full h-32 bg-gradient-to-r from-primary to-warning rounded-t-xl"></div>
+            <div className="w-full h-32 bg-gradient-to-r from-primary to-info rounded-t-xl"></div>
         </figure>
         
         <div className="relative -mt-15 mx-auto">

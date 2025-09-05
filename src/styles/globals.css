@@ -25,3 +25,6 @@ html {
   mix-blend-mode: exclusion;
   z-index: -2;
 }
+.btn {
+  border-radius: 0;
+}
