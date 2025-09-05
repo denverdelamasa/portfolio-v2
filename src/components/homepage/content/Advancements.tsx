@@ -12,10 +12,22 @@ export default function Contributing() {
           A peek at the projects and what I am tackling as I keep learning and growing, and what I am up to recently
         </p>
           <AdvancementCard
-            title="Learning Title | Learning subtitle"
-            description="Description here: Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. "
+            title="freecodecamp.org - Responsive Web Design Certification"
+            description="Currently working on how to further improve my CSS knowledge by revisiting the fundamentals of creating classic HTML5 website"
             imageUrl={sampleImage}
-            badges={["Next.js", "TailwindCSS", "Vercel"]}
+            dateStarted="Started at July 2025"
+          />
+          <AdvancementCard
+            title="KodeKloud - Docker Training Course for the Absolute Beginners"
+            description="Trying to learn more about DevOps and to understand it's principles out of curiosity starting with Docker. But I realized how it is important in modern software development and operations teams."
+            imageUrl={sampleImage}
+            dateStarted="Started at July 2025"
+          />
+          <AdvancementCard
+            title="Three.js - 3D Programming with JavaScript"
+            description="Learning the basics of 3D programming with JavaScript and Three.js library. I am fascinated by 3D graphics and want to explore how to create interactive 3D experiences on the web. Could be useful in the future."
+            imageUrl={sampleImage}
+            dateStarted="Started at Sept 2025"
           />
       </div>
     </section>

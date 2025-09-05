@@ -5,36 +5,28 @@ type AdvancementCardProps = {
   title: string;
   description: string;
   imageUrl: string | StaticImageData;
-  badges?: string[];
-  buttonText?: string;
+  dateStarted: string;
 };
 
 const AdvancementCard: React.FC<AdvancementCardProps> = ({
   title,
   description,
   imageUrl,
-  badges = [],
-  buttonText = "Learn More",
+  dateStarted,
 }) => {
   return (
     <div className="card md:card-side hover:backdrop-blur-[2px] transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
-      <figure className="p-4 md:w-82 md:h-52 flex items-center justify-center overflow-hidden align-middle m-auto">
+      <figure className="m-8 md:w-62 md:h-32 justify-start overflow-hidden w-1/5">
         <Image
           src={imageUrl}
           alt={title}
-          className="rounded-lg object-cover m-auto"
+          className="rounded-lg object-fill"
         />
       </figure>
-      <div className="card-body">
+      <div className="card-body w-4/5">
         <h2 className="card-title text-3xl">{title}</h2>
+        <p className="text-xs text-base-content/40 max-w-prose">{dateStarted}</p>
         <p className="text-sm text-base-content/80 max-w-prose">{description}</p>
-        <div className="flex flex-wrap gap-2 mt-2 max-w-prose">
-          {badges.map((badge, i) => (
-            <div key={i} className="badge badge-primary">
-              {badge}
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

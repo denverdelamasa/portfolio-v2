@@ -13,10 +13,16 @@ export default function Experiences() {
         </p>
         <div className="w-full mt-8">
           <ExperienceCard
-            title="Experience Title"
-            description="Description here: Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. "
-            date="2022 - Present"
-            badges={["Next.js", "TailwindCSS", "Vercel"]}
+            title="Internship | DENR PENRO - IT department"
+            description="During my On-the-Job Training (OJT), I was assigned as an IT intern at the Department of Environment and Natural Resources – Provincial Environment and Natural Resources Office (DENR-PENRO) Bulacan. My role was fairly dynamic, assisting with both technical and administrative IT tasks."
+            date="Sept 2024 - Jan 2025"
+            badges={["PC Repair", "Tech Support", "PMS", "Server", "Maintenance", "Documentation"]}
+          />
+          <ExperienceCard
+            title="Technical Team | Bethany United Methodist Church"
+            description="Currently working as a volunteer in the technical team of Bethany United Methodist Church, where I help with the technical aspects of the church's services, including sound and video production."
+            date="Aug 2024 - Present"
+            badges={["IT Service", "AV Operation", "Teamwork", "Volunteering"]}
           />
         </div>
       </div>
