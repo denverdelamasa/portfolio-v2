@@ -43,7 +43,7 @@ export default function PatternNetClient() {
     const strengthVert = 0.5;
     const radiusHorz = 200;
     const strengthHorz = 0.1;
-    const ease = 0.18; // easing for mouse (0..1)
+    const ease = 0.05; // easing for mouse (0..1)
 
     function drawOnce() {
       const c = canvasRef.current;
