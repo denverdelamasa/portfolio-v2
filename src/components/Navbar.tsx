@@ -28,7 +28,7 @@ export default function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-x-8">
             <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100 w-auto h-auto" href="/#projects">
-              <i className="bi bi-person-workspace"></i>
+              <i className="bi bi-journal-code"></i>
               Projects
             </Link>
             <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#experiences">

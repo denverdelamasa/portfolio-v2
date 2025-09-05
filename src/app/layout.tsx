@@ -3,6 +3,8 @@ import "../styles/fonts.css";
 import "../styles/pattern-net.css";
 import "../styles/pattern-square.css";
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
