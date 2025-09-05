@@ -33,18 +33,38 @@ export default function ProfileCard() {
             </p>
 
             <div className="card-actions justify-center mb-4 w-full">
-                <button className="btn btn-primary btn-sm w-full rounded-lg px-6">
-                  Resume
-                </button>
+              <a 
+                href="/resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary btn-sm w-full rounded-lg px-6 hover:scale-105 ease-in-out transition-all duration-200"
+              >
+                <i className="bi bi-file-earmark-richtext"></i>
+                Resume
+              </a>
             </div>
             
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="btn btn-xs btn-outline">
-                Instagram</div>
-              <div className="btn btn-xs btn-outline">LinkedIn</div>
-              <div className="btn btn-xs btn-outline">Email</div>
-              <div className="btn btn-xs btn-outline">uiverse</div>
-              <div className="btn btn-xs btn-outline">Github</div>
+              <a className="btn btn-xs btn-outline">
+                <i className="bi bi-instagram"></i>
+                Instagram
+              </a>
+              <a className="btn btn-xs btn-outline">
+                <i className="bi bi-linkedin"></i>
+                LinkedIn
+              </a>
+              <a className="btn btn-xs btn-outline">
+                <i className="bi bi-envelope-at"></i>
+                Email
+              </a>
+              <a className="btn btn-xs btn-outline">
+                <i className="bi bi-link-45deg"></i>
+                uiverse
+              </a>
+              <a className="btn btn-xs btn-outline">
+                <i className="bi bi-github"></i>
+                Github
+              </a>
             </div>
         </div>
       </div>
