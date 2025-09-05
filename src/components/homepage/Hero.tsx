@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="hero h-full w-full bg-pattern">
+    <div className="hero h-full w-full">
       <div className="hero-content text-center">
         <div className="max-w-3xl text-center items-center justify-center align-middle text-white">
           <p className="text-lg">

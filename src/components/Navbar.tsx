@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar() {
 
   return (
-    <div className="lg:px-12 navbar shadow-sm bg-base-300">
+    <div className="lg:px-12 navbar shadow-sm backdrop-blur-xs">
       <div className="navbar-start">
         <button className="btn btn-ghost text-xl p-0">
           <Image       

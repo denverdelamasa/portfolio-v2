@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../styles/fonts.css";
-import "../styles/bg-pattern.css";
+import "../styles/pattern-net.css";
+import "../styles/pattern-square.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -36,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="black" className="">
-      <body className={`${inter.variable} ${dmSans.variable} ${outfit.variable} ${ubuntu.variable} antialiased`}>
+      <body className={`${inter.variable} ${dmSans.variable} ${outfit.variable} ${ubuntu.variable} antialiased pattern-net`}>
         <header>
           <Navbar />
         </header>
