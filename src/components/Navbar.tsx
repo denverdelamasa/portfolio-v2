@@ -1,19 +1,29 @@
+"use client"
+import { useState } from "react";
+
 import Link from "next/link";
 import avatar from "../assets/avatar.png";
+import avatarAnimated from "../assets/avatar-animated.gif";
 import Image from "next/image";
 
 export default function Navbar() {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="lg:px-12 navbar shadow-sm backdrop-blur-xs">
       <div className="navbar-start">
-        <button className="btn btn-ghost text-xl p-0">
-          <Image       
-          src={avatar}
-          alt="Picture of the author"
-          className="w-full h-full"
+      <button
+        className="btn btn-ghost text-xl p-0 hover:scale-105 transition-all ease-in-out duration-100 relative w-12 h-12"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <Image
+          src={isHovered ? avatarAnimated : avatar}
+          alt={isHovered ? "Animated avatar" : "Static avatar"}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
-        </button>
+      </button>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-x-8">
