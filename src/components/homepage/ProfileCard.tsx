@@ -6,11 +6,7 @@ export default function ProfileCard() {
   return (
     <section id="profile" className="flex flex-col text-3xl h-full items-center justify-start gap-y-2">
       <div className="m-auto card w-76 lg:w-92 shadow-xl backdrop-blur-[2px] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-        <figure className="pt-4 px-4">
-            <div className="w-full h-32 bg-gradient-to-r from-[#100f0f] to-[#1e1e1e] rounded-t-xl"></div>
-        </figure>
-        
-        <div className="relative -mt-15 mx-auto">
+        <div className="relative mx-auto mt-8">
             <div className="avatar online">
                 <div className="w-36 rounded-full">
                     <Image src={profile} alt="Profile Avatar" />
