@@ -27,10 +27,19 @@ export default function Navbar() {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-x-8">
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#projects">Projects</Link>
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#experiences">Experiences</Link>
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#advancements">Advancements</Link>
-            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#contact">Contact</Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100 w-auto h-auto" href="/#projects">
+              <i className="bi bi-person-workspace"></i>
+              Projects
+            </Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#experiences">
+              Experiences
+            </Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#advancements">
+              Advancements
+            </Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out duration-100" href="/#contact">
+              Contact
+            </Link>
         </ul>
       </div>
       <div className="navbar-end">        
@@ -41,10 +50,18 @@ export default function Navbar() {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><Link className="" href="/#projects">Projects</Link></li>
-            <li><Link className="" href="/#experiences">Experiences</Link></li>
-            <li><Link className="" href="/#advancements">Advancements</Link></li>
-            <li><Link className="" href="/#contact">Contact</Link></li>
+            <li><Link className="" href="/#projects">
+              Projects
+            </Link></li>
+            <li><Link className="" href="/#experiences">
+              Experiences
+            </Link></li>
+            <li><Link className="" href="/#advancements">
+              Advancements
+            </Link></li>
+            <li><Link className="" href="/#contact">
+              Contact
+            </Link></li>
           </ul>
         </div>
       </div>
