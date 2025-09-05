@@ -62,9 +62,9 @@ export default function ProfileCard() {
                 <i className="bi bi-linkedin"></i>
                 LinkedIn
               </a>
-              <a className="btn btn-xs btn-outline tooltip">
+              <a className="btn btn-xs btn-outline tooltip" href="mailto:denver.delamasa@gmail.com" target="_blank" rel="noopener noreferrer">
                   <div className="tooltip-content">
-                    <div className="animate-bounce text-green-400 text-sm font-black">denver.delamasa@gmail.com!</div>
+                    <div className="animate-bounce text-green-400 text-xs font-black">denver.delamasa@gmail.com!</div>
                   </div>
                 <i className="bi bi-envelope-at"></i>
                 Email

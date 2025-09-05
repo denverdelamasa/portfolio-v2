@@ -1,5 +1,7 @@
 import ProjectCard from "./cards/ProjectCard";
-import sampleImage from "../../../../public/image.png";
+import mern from "../../../assets/projects/mern.webp";
+import capstone from "../../../assets/projects/capstone.webp";
+import webportfolio from "../../../assets/projects/webportfolio.webp";
 
 export default function Projects() {
   return (
@@ -15,7 +17,7 @@ export default function Projects() {
           <ProjectCard
             title="MERN stack project | Open source template"
             description="A simple MERN (MongoDB, Express, React, Node.js) starter project with authentication. It provides essential building blocks for a login/signup system so that people can quickly build it to a full blown app."
-            imageUrl={sampleImage}
+            imageUrl={mern}
             badges={["MongoDB", "Express", "React", "Node.js", "Bootstrap"]}
             buttonText="View Repository"
             buttonLink="https://github.com/denverdelamasa/mern-stack"
@@ -23,7 +25,7 @@ export default function Projects() {
           <ProjectCard
             title="Capstone Project - Paws'N Claws | (Archived)"
             description="My College thesis whom I've worked with four other people. My role mostly revolved around Front-End design and development, and technical writing."
-            imageUrl={sampleImage}
+            imageUrl={capstone}
             badges={["Laravel", "php", "Vue", "Blade", "TailwindCSS", "XAMPP", "MySQL", "Git", "DaisyUI"]}
             buttonText="View Repository"
             buttonLink="https://github.com/denverdelamasa/PawsNClaws-archive"
@@ -31,7 +33,7 @@ export default function Projects() {
           <ProjectCard
             title="Web Portfolio | (Previous Version)"
             description="My previous web portfolio which I made using React and TailwindCSS. This really enhanced my skills in terms of building, and designing a website as a whole."
-            imageUrl={sampleImage}
+            imageUrl={webportfolio}
             badges={["React", "TailwindCSS", "Vite", "Vite", "GitHub"]}
             buttonText="View Site"
             buttonLink="https://github.com/denverdelamasa/PawsNClaws-archive"
