@@ -17,7 +17,7 @@ const AdvancementCard: React.FC<AdvancementCardProps> = ({
   buttonText = "Learn More",
 }) => {
   return (
-    <div className="card md:card-side hover:backdrop-blur-[2px] hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
+    <div className="card md:card-side hover:backdrop-blur-[2px] transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
       <figure className="p-4 md:w-82 md:h-52 flex items-center justify-center overflow-hidden align-middle m-auto">
         <Image
           src={imageUrl}

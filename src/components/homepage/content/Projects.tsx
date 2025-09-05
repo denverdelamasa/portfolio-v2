@@ -11,18 +11,30 @@ export default function Projects() {
         <p className="text-xs lg:text-lg max-w-prose">
           Here’s a showcase of the projects I did so far:
         </p>
-        <div className="w-full mt-8">
-          {/* 
-            Last time I had a plan were I wanna use a .json file to contain all the data 
-            but then I forgot about props... I'm kinda dummass
-          */}
+        <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
           <ProjectCard
-            title="Project Title | Project subtitle"
-            description="Description here: Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. "
+            title="MERN stack project | Open source template"
+            description="A simple MERN (MongoDB, Express, React, Node.js) starter project with authentication. It provides essential building blocks for a login/signup system so that people can quickly build it to a full blown app."
             imageUrl={sampleImage}
-            badges={["Next.js", "TailwindCSS", "Vercel"]}
-            buttonText="View Project"
-            buttonLink="https://example.com"
+            badges={["MongoDB", "Express", "React", "Node.js", "Bootstrap"]}
+            buttonText="View Repository"
+            buttonLink="https://github.com/denverdelamasa/mern-stack"
+          />
+          <ProjectCard
+            title="Capstone Project - Paws'N Claws | (Archived)"
+            description="My College thesis whom I've worked with four other people. My role mostly revolved around Front-End design and development, and technical writing."
+            imageUrl={sampleImage}
+            badges={["Laravel", "php", "Vue", "Blade", "TailwindCSS", "XAMPP", "MySQL", "Git", "DaisyUI"]}
+            buttonText="View Repository"
+            buttonLink="https://github.com/denverdelamasa/PawsNClaws-archive"
+          />
+          <ProjectCard
+            title="Web Portfolio | (Previous Version)"
+            description="My previous web portfolio which I made using React and TailwindCSS. This really enhanced my skills in terms of building, and designing a website as a whole."
+            imageUrl={sampleImage}
+            badges={["React", "TailwindCSS", "Vite", "Vite", "GitHub"]}
+            buttonText="View Site"
+            buttonLink="https://github.com/denverdelamasa/PawsNClaws-archive"
           />
         </div>
       </div>

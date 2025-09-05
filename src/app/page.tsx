@@ -11,10 +11,10 @@ export default function Home() {
       </section>
 
       <section className="flex flex-col lg:flex-row gap-x-2 pt-12 pattern-content border-t border-b border-[#121212]">
-        <aside className="w-full lg:w-2/5 lg:sticky lg:top-0 h-auto lg:h-[100vh]">
+        <aside className="w-full lg:w-2/6 lg:sticky lg:top-0 h-auto lg:h-[100vh]">
           <ProfileCard />
         </aside>
-        <section className="w-full lg:w-3/5">
+        <section className="w-full lg:w-4/6">
           <Content />
         </section>
       </section>

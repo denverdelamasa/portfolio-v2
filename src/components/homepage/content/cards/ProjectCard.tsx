@@ -19,12 +19,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   buttonLink,
 }) => {
   return (
-    <div className="card md:card-side hover:backdrop-blur-[2px] hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
-      <figure className="p-4 md:w-48 md:h-48 flex items-center justify-center overflow-hidden align-middle m-auto">
+    <div className="card md:card-side hover:backdrop-blur-[2px] transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
+      <figure className="md:mt-[1em] md:ml-[1em] md:w-52 md:h-32 justify-center overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
-          className="rounded-lg object-cover m-auto"
+          className="rounded-lg object-fill"
         />
       </figure>
       <div className="card-body">
@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <p className="text-sm text-base-content/80 max-w-prose">{description}</p>
         <div className="flex flex-wrap gap-2 mt-2 max-w-prose">
           {badges.map((badge, i) => (
-            <div key={i} className="badge badge-primary">
+            <div key={i} className="badge badge-primary badge-xs">
               {badge}
             </div>
           ))}
