@@ -7,6 +7,7 @@ type ProjectCardProps = {
   imageUrl: string | StaticImageData;
   badges?: string[];
   buttonText?: string;
+  buttonLink?: string;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -14,7 +15,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   imageUrl,
   badges = [],
-  buttonText = "Learn More",
+  buttonText,
+  buttonLink,
 }) => {
   return (
     <div className="card md:card-side hover:backdrop-blur-xs hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
@@ -36,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
         <div className="card-actions justify-start mt-4">
-          <button className="btn btn-primary w-full rounded-md">{buttonText}</button>
+          <a className="btn btn-primary w-full rounded-md" href={buttonLink} target="_blank">{buttonText}</a>
         </div>
       </div>
     </div>

@@ -22,6 +22,7 @@ export default function Projects() {
             imageUrl={sampleImage}
             badges={["Next.js", "TailwindCSS", "Vercel"]}
             buttonText="View Project"
+            buttonLink="https://example.com"
           />
         </div>
       </div>
