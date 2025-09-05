@@ -23,9 +23,18 @@ export default function ProfileCard() {
                 <h2 className="card-title font-bold text-2xl">Denver Dela Masa</h2>
             </div>
             <div className="flex flex-wrap justify-center gap-2">
-              <div className="badge badge-sm mb-4 badge-neutral">Web Dev</div>
-              <div className="badge badge-sm mb-4 badge-neutral">Illustrator</div>
-              <div className="badge badge-sm mb-4 badge-neutral">Tech Support</div>
+              <div className="badge badge-sm mb-4 badge-neutral">
+                <i className="bi bi-code-slash"></i>
+                Web Dev
+                </div>
+              <div className="badge badge-sm mb-4 badge-neutral">
+                <i className="bi bi-easel2"></i>
+                Illustrator
+              </div>
+              <div className="badge badge-sm mb-4 badge-neutral">
+                <i className="bi bi-motherboard"></i>
+                Tech Support
+              </div>
             </div>
             
             <p className="mb-4">
@@ -53,7 +62,10 @@ export default function ProfileCard() {
                 <i className="bi bi-linkedin"></i>
                 LinkedIn
               </a>
-              <a className="btn btn-xs btn-outline" href="mailto:denverdelamasa@gmail.com" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-xs btn-outline tooltip">
+                  <div className="tooltip-content">
+                    <div className="animate-bounce text-green-400 text-sm font-black">denver.delamasa@gmail.com!</div>
+                  </div>
                 <i className="bi bi-envelope-at"></i>
                 Email
               </a>
