@@ -45,23 +45,23 @@ export default function ProfileCard() {
             </div>
             
             <div className="flex flex-wrap justify-center gap-4">
-              <a className="btn btn-xs btn-outline" href="https://codepen.io/denverdelamasa" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-xs btn-outline" href="https://www.instagram.com/wanedanvers/" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-instagram"></i>
                 Instagram
               </a>
-              <a className="btn btn-xs btn-outline" href="https://codepen.io/denverdelamasa" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-xs btn-outline" href="https://www.linkedin.com/in/denverdelamasa/" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-linkedin"></i>
                 LinkedIn
               </a>
-              <a className="btn btn-xs btn-outline" href="https://codepen.io/denverdelamasa" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-xs btn-outline" href="mailto:denverdelamasa@gmail.com" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-envelope-at"></i>
                 Email
               </a>
-              <a className="btn btn-xs btn-outline" href="https://codepen.io/denverdelamasa" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-xs btn-outline" href="https://uiverse.io/profile/denverdelamasa" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-link-45deg"></i>
                 uiverse
               </a>
-              <a className="btn btn-xs btn-outline" href="https://codepen.io/denverdelamasa" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-xs btn-outline" href="https://github.com/denverdelamasa" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-github"></i>
                 Github
               </a>
