@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="hero-content text-center">
         <div className="max-w-3xl text-center items-center justify-center align-middle">
           <p className="text-lg">
-            Hi! I am
+            Hi! I&apos;m
           </p>
           <h1 className="text-7xl lg:text-8xl font-bold mb-2 hero-title">
             Denver <br className="visible md:hidden"/> Dela Masa

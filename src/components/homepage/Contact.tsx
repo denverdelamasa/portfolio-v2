@@ -1,17 +1,15 @@
 import ContactForm from "./ContactForm";
 
-import Link from "next/link";
-
 export default function Contact() {
   return (
     <div id="contact" className="hero h-full w-full">
       <div className="hero-content text-center flex flex-col md:flex-row gap-10 w-full">
         <div className="w-full md:w-1/2 text-left items-left justify-left align-middle">
           <h1 className="text-5xl lg:text-8xl font-bold mb-4">
-            Let's work <span className="hover:text-red-500 transition-colors duration-200 ease-in">together</span>!
+            Let&apos;s work <span className="hover:text-red-500 transition-colors duration-200 ease-in">together</span>!
           </h1>
           <p className="text-sm lg:text-lg lg:max-w-lg font-thin mb-2">
-            Interested in working together? I’m looking for opportunities to join a team and grow—let’s connect!
+            Interested in working together? I&apos;m looking for opportunities to join a team and grow—let’s connect!
           </p>
         </div>
         <div className="w-full md:w-1/2 items-center justify-center align-middle">
