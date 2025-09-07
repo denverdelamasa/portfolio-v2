@@ -60,17 +60,30 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><Link className="" href="/#projects">
+            className="menu menu-md dropdown-content rounded-box z-1 mt-3 w-48 p-2 shadow bg-base-100 border-2 border-accent gap-2 items-end">
+            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#projects">
+              <i className="bi bi-journal-code"></i>
               Projects
             </Link></li>
-            <li><Link className="" href="/#experiences">
+            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#experiences">
+              <i className="bi bi-person-workspace"></i>
               Experiences
             </Link></li>
-            <li><Link className="" href="/#advancements">
+            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#advancements">
+              <i className="bi bi-ui-radios"></i>
               Advancements
             </Link></li>
-            <li><Link className="" href="/#contact">
+            <div className="divider my-[1px]"></div>
+            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#contact">
+              <i className="bi bi-telephone-outbound"></i>
               Contact
             </Link></li>
           </ul>
