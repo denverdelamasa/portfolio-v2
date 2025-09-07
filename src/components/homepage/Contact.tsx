@@ -14,7 +14,7 @@ export default function Contact() {
             Interested in working together? I’m looking for opportunities to join a team and grow—let’s connect!
           </p>
         </div>
-        <div className="w-1/2 items-center justify-center align-middle">
+        <div className="w-full md:w-1/2 items-center justify-center align-middle">
           <ContactForm />
         </div>
       </div>
