@@ -1,5 +1,4 @@
 import ExperienceCard from "./cards/ExperienceCard";
-import sampleImage from "../../../../public/image.png";
 
 export default function Experiences() {
   return (

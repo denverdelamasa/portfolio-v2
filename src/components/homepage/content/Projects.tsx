@@ -10,7 +10,7 @@ export default function Projects() {
         <div className="divider mb-2 mt-12">
           <p className="text-xl font-bold items-center align-middle flex flex-row gap-x-2">
             <i className="bi bi-journal-code"></i>
-            Projects I've worked on
+            Projects I&apos;ve worked on
           </p>
         </div>
         <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
