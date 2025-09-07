@@ -1,7 +1,7 @@
 export default function ContactForm() {
   return (
     <div className="contact-form w-full max-w-xl m-auto">
-      <div className="card backdrop-blur-xs shadow-lg rounded-2xl overflow-hidden p-8 hover:scale-105 hover:bg-base-100 transition-all duration-200 ease-in-out">
+      <div className="card backdrop-blur-xs shadow-lg rounded-2xl overflow-hidden p-8 hover:scale-102 hover:bg-base-100 transition-all duration-200 ease-in-out">
           <form className="flex flex-col gap-5 m-auto w-full items-center align-middle justify-center">
 
             <div className="form-control flex flex-col w-full">
