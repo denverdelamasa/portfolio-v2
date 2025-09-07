@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   buttonLink,
 }) => {
   return (
-    <div className="card md:card-side hover:backdrop-blur-[2px] transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
+    <div className="card md:card-side hover:backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
       <figure className="mx-6 md:mx-auto md:mt-[1em] md:ml-[1em] md:w-52 md:h-32 justify-center overflow-hidden">
         <Image
           src={imageUrl}
