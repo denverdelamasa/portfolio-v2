@@ -36,13 +36,10 @@ export default function ContactForm() {
               </label>
               <textarea
                 id="message"
-                className="textarea textarea-bordered transition duration-200 py-3 px-4 rounded-xl w-full min-h-40"
+                className="textarea textarea-bordered transition duration-200 py-3 px-4 w-full min-h-40"
                 placeholder="Write your message here..."
                 required
               />
-              <label className="label pt-1">
-                <span className="label-text-alt text-[10px]">Max 500 characters</span>
-              </label>
             </div>
 
             <div className="form-control w-full mt-4">
