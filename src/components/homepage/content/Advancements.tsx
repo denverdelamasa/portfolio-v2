@@ -7,12 +7,12 @@ export default function Contributing() {
   return (
     <section id="advancements" className="hero flex flex-col text-3xl w-full min-h-[100vh] items-start px-4">
       <div className="hero-content flex flex-col mb-4 items-start text-start">
-        <h1 className="text-5xl lg:text-6xl font-bold">
-          Learning & Contributing
-        </h1>
-        <p className="text-xs lg:text-lg max-w-prose">
-          A peek at the projects and what I am tackling as I keep learning and growing, and what I am up to recently
-        </p>
+          <div className="divider mb-2 mt-6">
+            <p className="text-2xl font-bold items-center align-middle flex flex-row gap-x-2">
+              <i className="bi bi-ui-radios"></i>
+              What I am up to
+            </p>
+          </div>
           <AdvancementCard
             title="freecodecamp.org - Responsive Web Design Certification"
             description="Currently working on how to further improve my CSS knowledge by revisiting the fundamentals of creating classic HTML5 website"

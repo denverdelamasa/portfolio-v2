@@ -5,13 +5,13 @@ export default function Experiences() {
   return (
     <section id="experiences" className="hero flex flex-col text-3xl w-full min-h-[100vh] items-start px-4">
       <div className="hero-content flex flex-col mb-4 items-start text-start">
-        <h1 className="text-5xl lg:text-6xl font-bold">
-          Experiences
-        </h1>
-        <p className="text-xs lg:text-lg max-w-prose">
-          Here’s a showcase of the experiences that shaped my journey
-        </p>
-        <div className="w-full mt-8">
+        <div className="divider mb-2 mt-6">
+          <p className="text-2xl font-bold items-center align-middle flex flex-row gap-x-2">
+            <i className="bi bi-person-workspace"></i>
+            My relevant experiences
+          </p>
+        </div>
+        <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
           <ExperienceCard
             title="Internship | DENR PENRO - IT department"
             description="During my On-the-Job Training (OJT), I was assigned as an IT intern at the Department of Environment and Natural Resources – Provincial Environment and Natural Resources Office (DENR-PENRO) Bulacan. My role was fairly dynamic, assisting with both technical and administrative IT tasks."

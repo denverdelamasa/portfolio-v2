@@ -7,12 +7,12 @@ export default function Projects() {
   return (
     <section id="projects" className="hero flex flex-col text-3xl w-full min-h-[100vh] items-start px-4">
       <div className="hero-content flex flex-col mb-4 items-start text-start">
-        <h1 className="text-5xl lg:text-6xl font-bold">
-          Projects
-        </h1>
-        <p className="text-xs lg:text-lg max-w-prose">
-          Here’s a showcase of the projects I did so far:
-        </p>
+        <div className="divider mb-2 mt-6">
+          <p className="text-2xl font-bold items-center align-middle flex flex-row gap-x-2">
+            <i className="bi bi-journal-code"></i>
+            Projects I've worked on
+          </p>
+        </div>
         <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
           <ProjectCard
             title="MERN stack project | Open source template"
