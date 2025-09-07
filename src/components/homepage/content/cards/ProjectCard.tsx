@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-3xl">{title}</h2>
+        <h2 className="card-title text-xl">{title}</h2>
         <p className="text-sm text-base-content/80 max-w-prose">{description}</p>
         <div className="flex flex-wrap gap-2 mt-2 max-w-prose">
           {badges.map((badge, i) => (

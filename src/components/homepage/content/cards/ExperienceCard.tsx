@@ -21,7 +21,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <p className="align-top text-sm mt-1 top-0">{date}</p>
       </div>
       <div className="card-body">
-        <h2 className="card-title text-3xl">
+        <h2 className="card-title text-xl">
             {title}
         </h2>
         <p className="align-top text-sm mt-1 top-0 block md:hidden w-6/8">{date}</p>  
