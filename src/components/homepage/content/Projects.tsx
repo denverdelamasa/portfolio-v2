@@ -36,7 +36,7 @@ export default function Projects() {
             imageUrl={webportfolio}
             badges={["React", "TailwindCSS", "Vite", "Vite", "GitHub"]}
             buttonText="View Site"
-            buttonLink="https://github.com/denverdelamasa/PawsNClaws-archive"
+            buttonLink="https://v1-denverdelamasa.vercel.app/"
           />
         </div>
       </div>
