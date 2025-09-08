@@ -19,7 +19,7 @@ export default function Home() {
         </section>
       </section>
 
-      <section className="flex h-[100vh] text-7xl w-full text-center justify-center items-center">
+      <section className="flex min-h-[100vh] w-full text-center justify-center items-center">
         <Contact />
       </section>
     </main>

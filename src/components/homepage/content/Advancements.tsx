@@ -10,7 +10,7 @@ export default function Contributing() {
           <div className="divider mb-2 mt-12">
             <p className="text-xl font-bold items-center align-middle flex flex-row gap-x-2">
               <i className="bi bi-ui-radios"></i>
-              Learning & Advancements
+              Progress & Growth
             </p>
           </div>
           <AdvancementCard
