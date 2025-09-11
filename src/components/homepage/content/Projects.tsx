@@ -2,6 +2,7 @@ import ProjectCard from "./cards/ProjectCard";
 import mern from "../../../assets/projects/mern.webp";
 import capstone from "../../../assets/projects/capstone.webp";
 import webportfolio from "../../../assets/projects/webportfolio.webp";
+import gitcardz from "../../../assets/projects/gitcardz.png";
 
 export default function Projects() {
   return (
@@ -14,6 +15,22 @@ export default function Projects() {
           </p>
         </div>
         <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
+          <ProjectCard
+            title="GitCardz - custom Tailwind card collaborative wall"
+            description="A fun, community-driven project where anyone can add their own profile card styled with Tailwind CSS. Think of it as a giant deck of cards — each one contributed by people from around the world."
+            imageUrl={gitcardz}
+            badges={["HTML", "Javascript", "TailwindCSS", "JSON", "GitHub"]}
+            buttonText="View Repository"
+            buttonLink="hhttps://github.com/denverdelamasa/GitCardz"
+          />
+          <ProjectCard
+            title="Web Portfolio | (Previous Version)"
+            description="My previous web portfolio which I made using React and TailwindCSS. This really enhanced my skills in terms of building, and designing a website as a whole."
+            imageUrl={webportfolio}
+            badges={["React", "TailwindCSS", "Vite", "Vite", "GitHub"]}
+            buttonText="View Site"
+            buttonLink="https://v1-denverdelamasa.vercel.app/"
+          />
           <ProjectCard
             title="MERN stack project | Open source template"
             description="A simple MERN (MongoDB, Express, React, Node.js) starter project with authentication. It provides essential building blocks for a login/signup system so that people can quickly build it to a full blown app."
@@ -29,14 +46,6 @@ export default function Projects() {
             badges={["Laravel", "php", "Vue", "Blade", "TailwindCSS", "XAMPP", "MySQL", "Git", "DaisyUI"]}
             buttonText="View Repository"
             buttonLink="https://github.com/denverdelamasa/PawsNClaws-archive"
-          />
-          <ProjectCard
-            title="Web Portfolio | (Previous Version)"
-            description="My previous web portfolio which I made using React and TailwindCSS. This really enhanced my skills in terms of building, and designing a website as a whole."
-            imageUrl={webportfolio}
-            badges={["React", "TailwindCSS", "Vite", "Vite", "GitHub"]}
-            buttonText="View Site"
-            buttonLink="https://v1-denverdelamasa.vercel.app/"
           />
         </div>
       </div>
