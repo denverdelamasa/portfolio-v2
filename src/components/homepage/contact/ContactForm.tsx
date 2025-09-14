@@ -5,22 +5,30 @@ import { sendForm, init } from "@emailjs/browser";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function ContactForm(): JSX.Element {
+function getErrorMessage(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  try {
+    const maybe = err as { text?: unknown };
+    if (maybe && typeof maybe.text === "string") return maybe.text;
+  } catch {
+  }
+  return "Failed to send. Try again.";
+}
+
+export default function ContactForm(): React.ReactElement {
   const formRef = useRef<HTMLFormElement | null>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  // Read env vars using Next.js convention
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-  // Initialize EmailJS ONLY on client
   useEffect(() => {
-    if (typeof window === "undefined") return; // never run on server
+    if (typeof window === "undefined") return;
     if (!publicKey) {
       console.warn(
-        "EmailJS public key missing. Set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in .env.local"
+        "EmailJS public key missing. Set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in .env.local or Vercel env."
       );
       return;
     }
@@ -37,7 +45,6 @@ export default function ContactForm(): JSX.Element {
 
     if (!formRef.current) return;
 
-    // Basic client-side validation
     const formData = new FormData(formRef.current);
     const name = (formData.get("name") || "").toString().trim();
     const email = (formData.get("email") || "").toString().trim();
@@ -66,13 +73,12 @@ export default function ContactForm(): JSX.Element {
 
     try {
       setStatus("sending");
-      // sendForm must run in the browser; we're already in client event handler
       await sendForm(serviceId, templateId, formRef.current as HTMLFormElement);
       setStatus("success");
       formRef.current.reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("EmailJS send error:", err);
-      setErrorMsg(err?.text || err?.message || "Failed to send. Try again.");
+      setErrorMsg(getErrorMessage(err));
       setStatus("error");
     }
   }
