@@ -248,7 +248,7 @@ export default function ContributionGraph({
     return (
       <div className={`flex flex-col items-center p-4 md:p-6 bg-[#100f0f] rounded-xl shadow-lg ${className}`}>
         <div className="h-6 w-40 bg-[#1e1e1e] rounded mb-4 animate-pulse"></div>
-        <div className="flex">
+        <div className="flex overflow-auto w-full">
           <div className="flex flex-col justify-between mr-1 md:mr-2 text-xs text-gray-400">
             {dayLabels.map((_, i) => (
               <div key={i} className="h-2 md:h-3 w-4 md:w-6 bg-[#1e1e1e] rounded mb-1 animate-pulse"></div>
@@ -299,7 +299,7 @@ export default function ContributionGraph({
 
   return (
     <div 
-      className={`flex flex-col items-center p-4 md:p-6 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl ${className}`}
+      className={`flex flex-col items-center p-2 md:p-4 ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
