@@ -1,6 +1,7 @@
 import Projects from "./content/Projects";
 import Experiences from "./content/Experiences";
 import Advancements from "./content/Advancements";
+import GithubContributions from "./content/GitHubContributions";
 
 export default function Content() {
   return (
@@ -9,6 +10,7 @@ export default function Content() {
         <Projects />
         <Experiences />
         <Advancements />
+        <GithubContributions />
     </section>
   );
 }
