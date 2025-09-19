@@ -84,7 +84,7 @@ export default function ContactForm(): React.ReactElement {
   }
 
   return (
-    <div className="contact-form w-full max-w-full md:max-w-xl mx-auto px-4">
+    <div className="contact-form w-full max-w-full md:max-w-xl mx-auto">
       <div className="card backdrop-blur-xs shadow-lg rounded-2xl overflow-hidden p-6 md:p-8 hover:scale-102 hover:bg-base-100 transition-all duration-200 ease-in-out">
         <form
           ref={formRef}
