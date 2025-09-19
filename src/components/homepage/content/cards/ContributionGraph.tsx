@@ -48,6 +48,21 @@ export default function ContributionGraph({
   const [isHovering, setIsHovering] = useState(false);
   const [currentStreak, setCurrentStreak] = useState(0);
   const [longestStreak, setLongestStreak] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if device is mobile
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
 
   const fetchData = useCallback(async () => {
     // Check cache first
@@ -195,17 +210,23 @@ export default function ContributionGraph({
 
   const getColor = (level: number): string => {
     switch (level) {
-      case 0: return 'bg-gray-100/70 dark:bg-gray-800/70';
-      case 1: return 'bg-green-100/70 dark:bg-green-900/70';
-      case 2: return 'bg-green-300/70 dark:bg-green-700/70';
-      case 3: return 'bg-green-500/70 dark:bg-green-500/70';
-      case 4: return 'bg-green-700/70 dark:bg-green-300/70';
-      default: return 'bg-gray-100/70 dark:bg-gray-800/70';
+      case 0: return 'bg-[#100f0f]';
+      case 1: return 'bg-[#1e1e1e]';
+      case 2: return 'bg-green-700/70';
+      case 3: return 'bg-green-500';
+      case 4: return 'bg-green-300';
+      default: return 'bg-[#100f0f]';
     }
   };
 
   const handleDayHover = (day: ContributionDay) => {
     setSelectedDay(day);
+  };
+
+  const handleDayClick = (day: ContributionDay) => {
+    setSelectedDay(day);
+    // On mobile, keep the day selected for a moment to show the tooltip
+    setTimeout(() => setSelectedDay(null), 2000);
   };
 
   // Group data by month for displaying month labels
@@ -225,32 +246,32 @@ export default function ContributionGraph({
   // Skeleton loader for the graph
   if (isLoading) {
     return (
-      <div className={`flex flex-col items-center p-6 hover:backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl ${className}`}>
-        <div className="h-6 w-40 bg-gray-200/50 dark:bg-gray-700/50 rounded mb-4 animate-pulse"></div>
+      <div className={`flex flex-col items-center p-4 md:p-6 bg-[#100f0f] rounded-xl shadow-lg ${className}`}>
+        <div className="h-6 w-40 bg-[#1e1e1e] rounded mb-4 animate-pulse"></div>
         <div className="flex">
-          <div className="flex flex-col justify-between mr-2 text-xs text-gray-400">
+          <div className="flex flex-col justify-between mr-1 md:mr-2 text-xs text-gray-400">
             {dayLabels.map((_, i) => (
-              <div key={i} className="h-3 w-6 bg-gray-200/50 dark:bg-gray-700/50 rounded mb-1 animate-pulse"></div>
+              <div key={i} className="h-2 md:h-3 w-4 md:w-6 bg-[#1e1e1e] rounded mb-1 animate-pulse"></div>
             ))}
           </div>
-          <div className="grid grid-flow-col grid-rows-7 gap-1">
+          <div className="grid grid-flow-col grid-rows-7 gap-0.5 md:gap-1">
             {Array.from({ length: 364 }).map((_, i) => (
               <div
                 key={i}
-                className="w-2 h-2 rounded-sm bg-gray-200/50 dark:bg-gray-700/50 animate-pulse"
+                className="w-2 h-2 rounded-sm bg-[#1e1e1e] animate-pulse"
               />
             ))}
           </div>
         </div>
         <div className="flex items-center mt-4">
-          <span className="text-xs text-gray-500 dark:text-gray-400 mr-2">Less</span>
+          <span className="text-xs text-gray-400 mr-2">Less</span>
           {[0, 1, 2, 3, 4].map(level => (
             <div
               key={level}
               className={`w-2 h-2 rounded-sm mx-0.5 ${getColor(level)}`}
             />
           ))}
-          <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">More</span>
+          <span className="text-xs text-gray-400 ml-2">More</span>
         </div>
       </div>
     );
@@ -258,17 +279,17 @@ export default function ContributionGraph({
 
   if (error) {
     return (
-      <div className={`flex flex-col items-center justify-center p-6 hover:backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl ${className}`}>
+      <div className={`flex flex-col items-center justify-center p-4 md:p-6 bg-[#100f0f] rounded-xl shadow-lg ${className}`}>
         <div className="text-red-500 mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-12 w-8 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h1 className="font-medium text-gray-900 dark:text-white mb-1">Unable to load contributions</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-4">{error}</p>
+        <h1 className="font-medium text-white mb-1 text-sm md:text-base">Unable to load contributions</h1>
+        <p className="text-xs md:text-sm text-gray-400 text-center mb-4">{error}</p>
         <button
           onClick={() => fetchData()}
-          className="px-4 py-2 bg-green-600/80 hover:bg-green-700/80 text-white rounded-md text-sm font-medium transition-colors backdrop-blur-sm"
+          className="px-3 py-1.5 md:px-4 md:py-2 bg-green-600 hover:bg-green-700 text-white rounded-md text-xs md:text-sm font-medium transition-colors"
         >
           Try Again
         </button>
@@ -278,7 +299,7 @@ export default function ContributionGraph({
 
   return (
     <div 
-      className={`flex flex-col backdrop-blur-xs items-center p-6 hover:backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl ${className}`}
+      className={`flex flex-col items-center p-4 md:p-6 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
@@ -286,107 +307,109 @@ export default function ContributionGraph({
       }}
     >
       <div className="flex justify-between items-start w-full mb-2">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-base md:text-lg font-semibold text-white">
           {username}'s Contributions
         </h2>
         <button 
           onClick={() => fetchData()}
-          className="p-1 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors backdrop-blur-sm rounded-full"
+          className="p-1 text-gray-400 hover:text-gray-300 transition-colors rounded-full"
           aria-label="Refresh data"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
           </svg>
         </button>
       </div>
       
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 self-start">
+      <p className="text-xs md:text-sm text-gray-400 mb-3 md:mb-4 self-start">
         {totalContributions.toLocaleString()} contributions in the last year
       </p>
 
       {/* Stats row */}
-      <div className="flex justify-between w-full mb-4 text-xs">
-        <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-3 rounded-lg backdrop-blur-sm">
-          <span className="font-semibold">{currentStreak}</span>
-          <span className="text-gray-500 dark:text-gray-400">Current streak</span>
+      <div className="grid grid-cols-3 gap-2 w-full mb-3 md:mb-4 text-xs">
+        <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-1 md:px-2 rounded-lg">
+          <span className="font-semibold text-white text-sm">{currentStreak}</span>
+          <span className="text-gray-400 text-xs">Current streak</span>
         </div>
-        <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-3 rounded-lg backdrop-blur-sm">
-          <span className="font-semibold">{longestStreak}</span>
-          <span className="text-gray-500 dark:text-gray-400">Longest streak</span>
+        <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-1 md:px-2 rounded-lg">
+          <span className="font-semibold text-white text-sm">{longestStreak}</span>
+          <span className="text-gray-400 text-xs">Longest streak</span>
         </div>
-        <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-3 rounded-lg backdrop-blur-sm">
-          <span className="font-semibold">{Math.round(totalContributions / 365)}</span>
-          <span className="text-gray-500 dark:text-gray-400">Daily avg</span>
+        <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-1 md:px-2 rounded-lg">
+          <span className="font-semibold text-white text-sm">{Math.round(totalContributions / 365)}</span>
+          <span className="text-gray-400 text-xs">Daily avg</span>
         </div>
       </div>
 
-      <div className="flex">
-        {/* Day of week labels */}
-        <div className="flex flex-col justify-between mr-2 text-xs text-gray-400">
-          {dayLabels.map((day, i) => (
-            <div key={i} className="h-3 text-center" style={{ visibility: i % 2 === 0 ? 'visible' : 'hidden' }}>
-              {day}
-            </div>
-          ))}
-        </div>
-
-        <div className="relative">
-          {/* Month labels */}
-          <div className="flex text-xs text-gray-400 mb-1">
-            {monthLabels().map((month, i) => (
-              <div key={i} className="flex-1 text-center">{month}</div>
+      <div className="w-full overflow-x-auto">
+        <div className="flex min-w-max">
+          {/* Day of week labels */}
+          <div className="flex flex-col justify-between mr-1 md:mr-2 text-xs text-gray-400">
+            {dayLabels.map((day, i) => (
+              <div key={i} className="h-2 md:h-3 text-center text-[10px] md:text-xs" style={{ visibility: i % 2 === 0 ? 'visible' : 'hidden' }}>
+                {day}
+              </div>
             ))}
           </div>
 
-          {/* Contribution grid */}
-          <div className="grid grid-flow-col grid-rows-7 gap-1">
-            {data.map(day => (
-              <div
-                key={day.date}
-                className={`w-2 h-2 rounded-sm cursor-pointer ${getColor(day.level)} transition-all duration-200 ${isHovering ? 'hover:scale-125 hover:shadow-sm' : ''}`}
-                onMouseEnter={() => handleDayHover(day)}
-                onMouseLeave={() => setSelectedDay(null)}
-              />
-            ))}
+          <div className="relative">
+            {/* Month labels */}
+            <div className="flex text-[10px] md:text-xs text-gray-400 mb-1">
+              {monthLabels().map((month, i) => (
+                <div key={i} className="flex-1 text-center min-w-[14px] md:min-w-[16px]">{month}</div>
+              ))}
+            </div>
+
+            {/* Contribution grid */}
+            <div className="grid grid-flow-col grid-rows-7 gap-0.5 md:gap-1">
+              {data.map(day => (
+                <div
+                  key={day.date}
+                  className={`w-2 h-2 rounded-[1px] md:rounded-[2px] cursor-pointer ${getColor(day.level)} transition-all duration-200 ${isHovering ? 'hover:scale-125 hover:shadow-sm' : ''}`}
+                  onMouseEnter={() => handleDayHover(day)}
+                  onMouseLeave={() => !isMobile && setSelectedDay(null)}
+                  onClick={() => isMobile && handleDayClick(day)}
+                  aria-label={`${day.count} contributions on ${day.date}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Legend */}
-      <div className="flex items-center mt-4">
-        <span className="text-xs text-gray-500 dark:text-gray-400 mr-2">Less</span>
+      <div className="flex items-center mt-3 md:mt-4 text-xs">
+        <span className="text-gray-400 mr-2">Less</span>
         {[0, 1, 2, 3, 4].map(level => (
           <div
             key={level}
             className={`w-2 h-2 rounded-sm mx-0.5 ${getColor(level)}`}
           />
         ))}
-        <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">More</span>
+        <span className="text-gray-400 ml-2">More</span>
       </div>
 
       {/* Activity level indicator */}
-      <div className="mt-3 w-full bg-white/30 dark:bg-gray-800/30 rounded-full h-2 backdrop-blur-sm">
+      <div className="mt-3 w-full bg-[#1e1e1e] rounded-full h-2">
         <div 
-          className="bg-green-500/70 h-2 rounded-full transition-all duration-500 ease-out"
+          className="bg-green-500 h-2 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${(totalContributions / 2000) * 100 > 100 ? 100 : (totalContributions / 2000) * 100}%` }}
         ></div>
       </div>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-2">
+      <p className="text-xs text-gray-400 mt-1 mb-2">
         Activity level: {totalContributions > 1500 ? 'High' : totalContributions > 750 ? 'Medium' : 'Low'}
       </p>
-
       {/* Always visible tooltip - static inside card */}
-      <div className="w-full bg-[#1e1e1e] backdrop-blur-md text-white text-xs py-2 px-3 rounded-md shadow-lg mb-3 transition-all duration-200">
+      <div className="w-full bg-[#1e1e1e] text-white text-xs py-2 px-3 rounded-md shadow-lg mb-3 transition-all duration-200">
         {selectedDay ? (
           <>
             <p><strong>{selectedDay.count} contributions</strong></p>
             <p>on {new Date(selectedDay.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
           </>
         ) : (
-          <p className="text-center">Hover over a square to view details</p>
+          <p className="text-center text-gray-400">{isMobile ? 'Tap a square to view details' : 'Hover over a square to view details'}</p>
         )}
       </div>
-
     </div>
   );
 }
