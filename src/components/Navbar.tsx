@@ -47,6 +47,12 @@ export default function Navbar() {
             </Link>
             <Link className="my-auto hover:scale-95 transition-all ease-in-out 
                   duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#github-contributions">
+              <i className="bi bi-body-text"></i>
+              Activity
+            </Link>
+            <Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#contact">
               <i className="bi bi-telephone-outbound"></i>
               Contact
@@ -80,6 +86,12 @@ export default function Navbar() {
               Advancements
             </Link></li>
             <div className="divider my-[1px]"></div>
+            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
+                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+                  href="/#github-contributions">
+              <i className="bi bi-body-text"></i>
+              Activity
+            </Link></li>
             <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
                   duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#contact">
