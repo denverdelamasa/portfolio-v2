@@ -308,7 +308,7 @@ export default function ContributionGraph({
     >
       <div className="flex justify-between items-start w-full mb-2">
         <h2 className="text-base md:text-lg font-semibold text-white">
-          {username}'s Contributions
+          {username}&aposs Contributions
         </h2>
         <button 
           onClick={() => fetchData()}
