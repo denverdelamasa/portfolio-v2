@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="lg:px-12 navbar shadow-sm backdrop-blur-xs">
+    <div className="lg:px-12 navbar shadow-sm backdrop-blur-xs z-99">
       <div className="navbar-start">
       <button
         className="btn btn-ghost text-xl p-0 hover:scale-105 transition-all ease-in-out duration-100 relative w-12 h-12"
@@ -66,34 +66,28 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md dropdown-content rounded-box z-1 mt-3 w-48 p-2 shadow bg-base-100 border-2 border-accent gap-2 items-end">
-            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
-                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+            className="menu menu-sm dropdown-content rounded-box mt-3 p-2 shadow bg-base-100 border-2 border-accent gap-2 items-end">
+            <li><Link className="my-auto flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#projects">
               <i className="bi bi-journal-code"></i>
               Projects
             </Link></li>
-            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
-                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+            <li><Link className="my-auto flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#experiences">
               <i className="bi bi-person-workspace"></i>
               Experiences
             </Link></li>
-            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
-                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+            <li><Link className="my-auto flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#advancements">
               <i className="bi bi-ui-radios"></i>
               Advancements
             </Link></li>
-            <div className="divider my-[1px]"></div>
-            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
-                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+            <li><Link className="my-auto flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#github-contributions">
               <i className="bi bi-body-text"></i>
               Activity
             </Link></li>
-            <li><Link className="my-auto hover:scale-95 transition-all ease-in-out 
-                  duration-100 flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
+            <li><Link className="my-auto flex flex-row gap-x-2 w-auto h-auto items-center justify-center align-middle" 
                   href="/#contact">
               <i className="bi bi-telephone-outbound"></i>
               Contact

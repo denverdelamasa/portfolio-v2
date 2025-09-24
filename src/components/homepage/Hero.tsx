@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <div className="hero h-full w-full">
       <div className="hero-content text-center">
-        <div className="max-w-3xl text-center items-center justify-center align-middle">
+        <div className="max-w-3xl text-center items-center justify-center align-middle z-0">
           <p className="text-lg">
             Hi! I&apos;m
           </p>
