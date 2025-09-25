@@ -1,51 +1,55 @@
 'use client';
 
 import { useMemo } from "react";
-import { getGalleryImages, type MediaItem } from '@/lib/gallery-images';
+import { type MediaItem } from '@/lib/gallery-images';
 
+// More efficient shuffle using Fisher-Yates algorithm
 function shuffle<T>(array: T[]): T[] {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+  const arr = array.slice();
+  let currentIndex = arr.length;
+  let randomIndex: number;
+
+  while (currentIndex > 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
   }
+
   return arr;
 }
-
-// This should be moved to a layout or page for better SEO
-// import { Metadata } from 'next';
-
-// export const metadata: Metadata = {
-//   title: 'Gallery | Your Name',
-//   description: 'Your gallery description',
-// };
 
 interface GalleryImagesProps {
   images: MediaItem[];
 }
 
 export default function GalleryImages({ images }: GalleryImagesProps) {
-  const mediaItems = useMemo(() => shuffle(images), [images]);
+  const mediaItems = useMemo(() => {
+    if (!images.length) return [];
+    return shuffle(images);
+  }, [images]);
 
   return (
     <section className="flex">
-      <div className="text-left">
+      <div className="text-left w-full">
         <section className="columns-2 md:columns-3 gap-4 my-12 px-6">
           {mediaItems.length === 0 ? (
             <div className="text-center opacity-70 col-span-full">
               No images found.
             </div>
           ) : (
-            mediaItems.map((item, i) => (
+            mediaItems.map((item, index) => (
               <div 
-                key={`${item.alt}-${i}`} 
+                key={`${item.src}-${index}`} // Fixed: Use src + index since id doesn't exist
                 className="mb-4 break-inside-avoid overflow-hidden shadow-md rounded-2xl"
               >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-auto object-cover bg-gray-100"
+                  className="w-full h-auto object-cover"
                   loading="lazy"
+                  decoding="async"
+                  width={item.width || 400}
+                  height={item.height || 300}
                 />
               </div>
             ))
