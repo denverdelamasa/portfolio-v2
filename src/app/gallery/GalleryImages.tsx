@@ -28,8 +28,8 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
   const mediaItems = useMemo(() => shuffle(images), [images]);
 
   return (
-    <section className="hero flex flex-col">
-      <div className="hero-content flex flex-col text-left">
+    <section className="flex">
+      <div className="text-left">
         <section className="columns-2 md:columns-3 gap-4 my-12 px-6">
           {mediaItems.length === 0 ? (
             <div className="text-center opacity-70 col-span-full">
@@ -39,12 +39,12 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
             mediaItems.map((item, i) => (
               <div 
                 key={`${item.alt}-${i}`} 
-                className="mb-4 break-inside-avoid overflow-hidden shadow-md"
+                className="mb-4 break-inside-avoid overflow-hidden shadow-md rounded-2xl"
               >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-auto object-cover border-2 border-accent bg-gray-100"
+                  className="w-full h-auto object-cover bg-gray-100"
                   loading="lazy"
                 />
               </div>
@@ -53,7 +53,7 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
         </section>
 
         <div className="w-full h-auto m-auto text-center">
-          <p className="m-auto w-full">More content coming soon!</p>
+          <p className="fade-up-scroll m-auto w-full">More content coming soon!</p>
         </div>
       </div>
     </section>

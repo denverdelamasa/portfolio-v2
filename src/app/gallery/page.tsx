@@ -5,7 +5,8 @@ export default function Gallery() {
   const images = getGalleryImages();
 
   return (
-    <main className="min-h-[100vh] flex flex-col items-center justify-center p-24">
+    <main className="min-h-[100vh] flex flex-col items-center justify-center lg:p-12">
+      
       <GalleryImages images={images} />
     </main>
   );
