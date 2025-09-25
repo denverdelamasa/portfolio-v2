@@ -16,6 +16,7 @@ export default function Navbar() {
         className="btn btn-ghost text-xl p-0 hover:scale-105 transition-all ease-in-out duration-100 relative w-12 h-12"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => window.location.href = '/'}
       >
         <Image
           src={isHovered ? avatarAnimated : avatar}
@@ -59,7 +60,11 @@ export default function Navbar() {
             </Link>
         </ul>
       </div>
-      <div className="navbar-end">        
+      <div className="navbar-end">
+        <Link className="btn" href="/gallery">
+          <i className="bi bi-images"></i>
+          Gallery
+        </Link>        
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
