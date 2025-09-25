@@ -171,7 +171,6 @@ export default function ContributionGraph({
     // Iterate through contributions to calculate streaks
     for (let i = contributions.length - 1; i >= 0; i--) {
       const day = contributions[i];
-      const contributionDate = new Date(day.date);
       
       if (day.count > 0) {
         tempLongest++;

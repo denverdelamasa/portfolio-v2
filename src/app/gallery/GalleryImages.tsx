@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { type MediaItem } from '@/lib/gallery-images';
+import Image from "next/image";
 
 // More efficient shuffle using Fisher-Yates algorithm
 function shuffle<T>(array: T[]): T[] {
@@ -42,7 +43,7 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
                 key={`${item.src}-${index}`} // Fixed: Use src + index since id doesn't exist
                 className="mb-4 break-inside-avoid overflow-hidden shadow-md rounded-2xl"
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.alt}
                   className="w-full h-auto object-cover"
