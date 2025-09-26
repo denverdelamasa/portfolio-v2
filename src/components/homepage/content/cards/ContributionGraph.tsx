@@ -298,7 +298,7 @@ export default function ContributionGraph({
 
   return (
     <div 
-      className={`flex flex-col items-center p-2 md:p-4 ${className}`}
+      className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 rounded-xl ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
