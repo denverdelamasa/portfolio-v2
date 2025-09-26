@@ -53,7 +53,7 @@ export default function PatternNetClient() {
       // clear using CSS-pixel dimensions
       ctxLocal.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-      ctxLocal.strokeStyle = "#1e1e1e";
+      ctxLocal.strokeStyle = "#100f0f";
       ctxLocal.lineWidth = 1;
 
       // vertical pass (x increments -> lines downwards)
