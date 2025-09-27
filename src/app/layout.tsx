@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "../styles/fonts.css";
-import "../styles/pattern-content.css";
+import "../styles/pattern-styled.css";
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 

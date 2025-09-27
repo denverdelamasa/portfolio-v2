@@ -6,11 +6,11 @@ import Hero from "@/components/homepage/Hero";
 export default function Home() {
   return (
     <main className="flex flex-col w-full h-full overflow-x-hidden md:overflow-x-visible">
-      <section className="flex h-[80vh] w-full text-center justify-center items-center z-1">
+      <section className="flex h-[100vh] w-full text-center justify-center items-center z-1">
         <Hero />
       </section>
 
-      <section className="flex flex-col lg:flex-row gap-x-2 pt-12 pattern-content border-t border-b border-[#121212]">
+      <section className="flex flex-col lg:flex-row gap-x-2 pt-12">
         <aside className="w-full lg:w-3/7 2xl:w-2/4 lg:sticky lg:top-0 h-auto lg:h-[100vh]">
           <ProfileCard />
         </aside>

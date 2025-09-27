@@ -27,7 +27,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <p className="text-sm text-base-content/80 max-w-prose">{description}</p>
         <div className="flex flex-wrap gap-2 mt-2 max-w-prose">
           {badges.map((badge, i) => (
-            <div key={i} className="badge badge-neutral badge-sm">
+            <div key={i} className="badge badge-success badge-sm">
               {badge}
             </div>
           ))}

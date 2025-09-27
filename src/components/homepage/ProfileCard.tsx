@@ -19,15 +19,15 @@ export default function ProfileCard() {
                 <h2 className="card-title font-bold text-2xl">Denver Dela Masa</h2>
             </div>
             <div className="flex flex-wrap justify-center gap-2">
-              <div className="badge badge-sm mb-4 badge-neutral">
+              <div className="badge badge-sm mb-4 badge-success">
                 <i className="bi bi-code-slash"></i>
                 Web Dev
                 </div>
-              <div className="badge badge-sm mb-4 badge-neutral">
+              <div className="badge badge-sm mb-4 badge-success">
                 <i className="bi bi-easel2"></i>
                 Illustrator
               </div>
-              <div className="badge badge-sm mb-4 badge-neutral">
+              <div className="badge badge-sm mb-4 badge-success">
                 <i className="bi bi-motherboard"></i>
                 Tech Support
               </div>
