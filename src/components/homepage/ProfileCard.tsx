@@ -5,7 +5,7 @@ export default function ProfileCard() {
 
   return (
     <section id="profile" className="flex flex-col text-3xl h-full items-center justify-center align-middle gap-y-2 w-full p-4">
-      <div className="rounded-lg m-auto card w-full lg:max-w-82 xl:max-w-104 shadow-xl backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-in-out">
+      <div className="rounded-lg m-auto card w-full md:max-w-128 xl:max-w-108 shadow-xl backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ease-in-out">
         <div className="relative mx-auto mt-8">
             <div className="avatar online">
                 <div className="w-36 rounded-full">
