@@ -32,7 +32,7 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
   return (
     <section className="flex">
       <div className="text-left w-full">
-        <section className="columns-2 md:columns-3 gap-4 my-12 px-6">
+        <section className="columns-2 md:columns-3 gap-2 my-12 px-1 md:px-4">
           {mediaItems.length === 0 ? (
             <div className="text-center opacity-70 col-span-full">
               No images found.
@@ -41,7 +41,7 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
             mediaItems.map((item, index) => (
               <div 
                 key={`${item.src}-${index}`} // Fixed: Use src + index since id doesn't exist
-                className="mb-4 break-inside-avoid overflow-hidden shadow-md rounded-2xl"
+                className="mb-8 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl"
               >
                 <Image
                   src={item.src}
