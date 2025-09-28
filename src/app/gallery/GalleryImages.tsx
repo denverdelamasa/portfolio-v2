@@ -41,17 +41,20 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
             mediaItems.map((item, index) => (
               <div 
                 key={`${item.src}-${index}`} // Fixed: Use src + index since id doesn't exist
-                className="mb-8 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl"
+                className="flex flex-col mb-2 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl bg-base-100 border-accent border-1"
               >
                 <Image
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-xl md:rounded-2xl"
                   loading="lazy"
                   decoding="async"
                   width={item.width || 400}
                   height={item.height || 300}
                 />
+                <div className="btn w-auto bg-base-100">
+                  <i className="bi bi-fullscreen"></i>
+                </div>
               </div>
             ))
           )}
