@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { type MediaItem } from '@/lib/gallery-images';
 import Image from "next/image";
 
@@ -24,46 +24,96 @@ interface GalleryImagesProps {
 }
 
 export default function GalleryImages({ images }: GalleryImagesProps) {
+  const [selectedImage, setSelectedImage] = useState<MediaItem | null>(null);
+  
   const mediaItems = useMemo(() => {
     if (!images.length) return [];
     return shuffle(images);
   }, [images]);
 
-  return (
-    <section className="flex">
-      <div className="text-left w-full">
-        <section className="columns-2 md:columns-3 gap-2 my-12 px-1 md:px-4">
-          {mediaItems.length === 0 ? (
-            <div className="text-center opacity-70 col-span-full">
-              No images found.
-            </div>
-          ) : (
-            mediaItems.map((item, index) => (
-              <div 
-                key={`${item.src}-${index}`} // Fixed: Use src + index since id doesn't exist
-                className="flex flex-col mb-2 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl bg-base-100 border-accent border-1"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-auto object-cover rounded-xl md:rounded-2xl"
-                  loading="lazy"
-                  decoding="async"
-                  width={item.width || 400}
-                  height={item.height || 300}
-                />
-                <div className="btn w-auto bg-base-100">
-                  <i className="bi bi-fullscreen"></i>
-                </div>
-              </div>
-            ))
-          )}
-        </section>
+  const openModal = (item: MediaItem) => {
+    setSelectedImage(item);
+  };
 
-        <div className="w-full h-auto m-auto text-center">
-          <p className="fade-up-scroll m-auto w-full">More content coming soon!</p>
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
+  return (
+    <>
+      <section className="flex">
+        <div className="text-left w-full">
+          <section className="columns-2 md:columns-3 gap-2 my-12 px-1 md:px-4">
+            {mediaItems.length === 0 ? (
+              <div className="text-center opacity-70 col-span-full">
+                No images found.
+              </div>
+            ) : (
+              mediaItems.map((item, index) => (
+                <div 
+                  key={`${item.src}-${index}`}
+                  className="flex flex-col mb-2 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl bg-base-100 border-accent border-1"
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-auto object-cover rounded-t-xl md:rounded-t-2xl"
+                    loading="lazy"
+                    decoding="async"
+                    width={item.width || 400}
+                    height={item.height || 300}
+                  />
+                  <button 
+                    className="btn w-auto bg-base-100 hover:bg-base-200 transition-colors"
+                    onClick={() => openModal(item)}
+                  >
+                    <i className="bi bi-fullscreen"></i>
+                  </button>
+                </div>
+              ))
+            )}
+          </section>
+
+          <div className="w-full h-auto m-auto text-center">
+            <p className="fade-up-scroll m-auto w-full">More content coming soon!</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div className="modal modal-open">
+          <div className="modal-box max-w-4xl w-11/12 max-h-full overflow-auto rounded-xl md:rounded-2xl backdrop-blur-[2px] backdrop-brightness-130 backdrop-saturate-150">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-bold">{selectedImage.alt}</h3>
+              <button 
+                className="btn btn-sm btn-circle btn-ghost"
+                onClick={closeModal}
+              >
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+            
+            <div className="flex justify-center rounded-xl">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-auto max-h-[70vh] object-contain"
+                width={selectedImage.width || 1200}
+                height={selectedImage.height || 800}
+              />
+            </div>
+          </div>
+          
+          {/* Backdrop click to close */}
+          <div 
+            className="modal-backdrop" 
+            onClick={closeModal}
+          >
+            <button>close</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
