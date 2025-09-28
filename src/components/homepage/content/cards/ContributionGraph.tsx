@@ -207,16 +207,16 @@ export default function ContributionGraph({
     fetchData();
   }, [fetchData]);
 
-  const getColor = (level: number): string => {
-    switch (level) {
-      case 0: return 'bg-[#1e1e1e]';
-      case 1: return 'bg-[#1e1e1e]';
-      case 2: return 'bg-green-700/70';
-      case 3: return 'bg-green-500';
-      case 4: return 'bg-green-300';
-      default: return 'bg-[#1e1e1e]';
-    }
-  };
+const getColor = (level: number): string => {
+  switch (level) {
+    case 0: return 'bg-[#100f0f]';
+    case 1: return 'bg-[#1e1e1e]';
+    case 2: return 'bg-[#0e4429]';      // GitHub dark green
+    case 3: return 'bg-[#26a641]';      // GitHub medium green
+    case 4: return 'bg-[#39d353]';      // GitHub bright green
+    default: return 'bg-[#100f0f]';
+  }
+};
 
   const handleDayHover = (day: ContributionDay) => {
     setSelectedDay(day);
@@ -399,7 +399,7 @@ export default function ContributionGraph({
         Activity level: {totalContributions > 1500 ? 'High' : totalContributions > 750 ? 'Medium' : 'Low'}
       </p>
       {/* Always visible tooltip - static inside card */}
-      <div className="w-full bg-[#1e1e1e] text-white text-xs py-2 px-3 rounded-md shadow-lg mb-3 transition-all duration-200">
+      <div className="w-full bg-[#1e1e1e] text-content text-xs py-2 px-3 rounded-md shadow-lg mb-3 transition-all duration-200">
         {selectedDay ? (
           <>
             <p><strong>{selectedDay.count} contributions</strong></p>
