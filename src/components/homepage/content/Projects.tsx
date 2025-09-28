@@ -6,7 +6,7 @@ import gitcardz from "../../../assets/projects/gitcardz.png";
 
 export default function Projects() {
   return (
-    <section id="projects" className="hero flex flex-col text-3xl w-full min-h-[100vh] items-start px-4">
+    <section id="projects" className="hero flex flex-col text-3xl w-full h-fit items-start px-4">
       <div className="hero-content flex flex-col mb-4 items-start text-start">
         <div className="divider mb-2 mt-12">
           <p className="text-xl font-bold items-center align-middle flex flex-row gap-x-2">

@@ -5,7 +5,7 @@ export default function Gallery() {
   const images = getGalleryImages();
 
   return (
-    <main className="min-h-[100vh] flex flex-col items-center justify-center p-2 lg:p-12">
+    <main className="h-fit flex flex-col items-center justify-center p-2 lg:p-12">
       <h1 className="text-6xl md:text-8xl font-bold">
         My <span className="hover:text-red-500 transition-colors duration-200 ease-in">Gallery</span>.
       </h1>
