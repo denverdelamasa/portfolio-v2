@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { type MediaItem } from '@/lib/gallery-images';
 import Image from "next/image";
 
@@ -25,11 +25,18 @@ interface GalleryImagesProps {
 
 export default function GalleryImages({ images }: GalleryImagesProps) {
   const [selectedImage, setSelectedImage] = useState<MediaItem | null>(null);
+  const [isClient, setIsClient] = useState(false);
   
+  // Set client flag on mount
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const mediaItems = useMemo(() => {
     if (!images.length) return [];
-    return shuffle(images);
-  }, [images]);
+    // Only shuffle on client to avoid hydration mismatch
+    return isClient ? shuffle(images) : images;
+  }, [images, isClient]);
 
   const openModal = (item: MediaItem) => {
     setSelectedImage(item);
