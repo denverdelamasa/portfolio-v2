@@ -245,7 +245,7 @@ export default function ContributionGraph({
   // Skeleton loader for the graph
   if (isLoading) {
     return (
-      <div className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 rounded-xl ${className}`}>
+      <div className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 rounded-xl ${className}`}>
         <div className="h-6 w-40 bg-[#1e1e1e] rounded mb-4 animate-pulse"></div>
         <div className="flex overflow-auto w-full">
           <div className="flex flex-col justify-between mr-1 md:mr-2 text-xs text-gray-400">
@@ -278,7 +278,7 @@ export default function ContributionGraph({
 
   if (error) {
     return (
-      <div className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 rounded-xl ${className}`}>
+      <div className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 rounded-xl ${className}`}>
         <div className="text-red-500 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-12 w-8 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -298,7 +298,7 @@ export default function ContributionGraph({
 
   return (
     <div 
-      className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 rounded-xl ${className}`}
+      className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 rounded-xl ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);

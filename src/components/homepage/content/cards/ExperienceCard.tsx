@@ -15,7 +15,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   badges = [],
 }) => {
   return (
-    <div className="flex flex-col md:flex-row backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
+    <div className="flex flex-col md:flex-row backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 transform hover:-translate-y-1 active:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
       <div className="p-8 justify-center overflow-hidden align-top hidden md:block md:w-3/10">
         <p className="align-top text-xs mt-1 top-0">{date}</p>
       </div>

@@ -85,7 +85,7 @@ export default function ContactForm(): React.ReactElement {
 
   return (
     <div className="contact-form w-full max-w-full md:max-w-xl mx-auto">
-      <div className="card shadow-lg overflow-hidden p-6 md:p-8 backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 transform hover:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
+      <div className="card shadow-lg overflow-hidden p-6 md:p-8 backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 transform hover:-translate-y-1 active:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
         <form
           ref={formRef}
           onSubmit={handleSubmit}
