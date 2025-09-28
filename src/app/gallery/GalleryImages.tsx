@@ -59,7 +59,7 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
               mediaItems.map((item, index) => (
                 <div 
                   key={`${item.src}-${index}`}
-                  className="flex flex-col mb-2 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl bg-base-100 border-accent border-1"
+                  className="flex flex-col mb-8 break-inside-avoid overflow-hidden shadow-md rounded-xl md:rounded-2xl bg-base-100 border-accent border-1"
                 >
                   <Image
                     src={item.src}
