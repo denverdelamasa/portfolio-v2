@@ -90,7 +90,14 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
       {/* Modal */}
       {selectedImage && (
         <div className="modal modal-open">
-          <div className="modal-box max-w-4xl w-11/12 max-h-full overflow-auto rounded-xl md:rounded-2xl backdrop-blur-[2px] backdrop-brightness-130 backdrop-saturate-150">
+          {/* Custom backdrop with glass effect */}
+          <div 
+            className="fixed inset-0 bg-base-100/30 backdrop-blur-md backdrop-brightness-125"
+            onClick={closeModal}
+          ></div>
+          
+          {/* Modal content */}
+          <div className="modal-box max-w-4xl w-11/12 max-h-full overflow-auto rounded-xl md:rounded-2xl bg-base-100/90 border-accent border-1">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold">{selectedImage.alt}</h3>
               <button 
@@ -110,14 +117,6 @@ export default function GalleryImages({ images }: GalleryImagesProps) {
                 height={selectedImage.height || 800}
               />
             </div>
-          </div>
-          
-          {/* Backdrop click to close */}
-          <div 
-            className="modal-backdrop" 
-            onClick={closeModal}
-          >
-            <button>close</button>
           </div>
         </div>
       )}
