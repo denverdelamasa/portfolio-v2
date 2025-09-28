@@ -18,7 +18,7 @@ export default function ProfileCard() {
             <div className="flex justify-center items-center gap-2 mb-2">
                 <h2 className="card-title font-bold text-2xl">Denver Dela Masa</h2>
             </div>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-x-1">
               <div className="badge badge-sm mb-4 badge-success">
                 <i className="bi bi-code-slash"></i>
                 Web Dev
