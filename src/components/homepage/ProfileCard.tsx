@@ -77,6 +77,10 @@ export default function ProfileCard() {
                 <i className="bi bi-code-square"></i>
                 Codepen
               </a>
+              <a className="btn btn-xs btn-outline" href="https://www.cosmos.so/wyane" target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-file-earmark-easel"></i>
+                Cosmos
+              </a>
             </div>
         </div>
       </div>
