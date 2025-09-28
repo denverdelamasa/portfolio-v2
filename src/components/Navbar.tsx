@@ -6,6 +6,8 @@ import avatar from "../assets/avatar.png";
 import avatarAnimated from "../assets/avatar-animated.gif";
 import Image from "next/image";
 
+import GalleryButton from "./GalleryButton";
+
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -61,10 +63,7 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn" href="/gallery">
-          <i className="bi bi-images"></i>
-          Gallery
-        </Link>        
+        <GalleryButton/>  
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>

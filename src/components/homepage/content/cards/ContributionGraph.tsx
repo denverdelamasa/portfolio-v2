@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { graphql } from '@octokit/graphql';
 
 interface ContributionDay {
@@ -33,8 +33,27 @@ interface ContributionGraphProps {
   className?: string;
 }
 
-// Add a cache to prevent unnecessary API calls
+// Enhanced cache with TTL and size limits
 const contributionCache = new Map();
+const CACHE_TTL = 3600000; // 1 hour
+const MAX_CACHE_SIZE = 50;
+
+// Precompute color mappings for better performance
+const COLOR_MAP = {
+  0: 'bg-[#100f0f]',
+  1: 'bg-[#1e1e1e]', 
+  2: 'bg-[#0e4429]',
+  3: 'bg-[#26a641]',
+  4: 'bg-[#39d353]',
+} as const;
+
+// Utility function to manage cache size
+const manageCacheSize = () => {
+  if (contributionCache.size > MAX_CACHE_SIZE) {
+    const oldestKey = Array.from(contributionCache.keys())[0];
+    contributionCache.delete(oldestKey);
+  }
+};
 
 export default function ContributionGraph({ 
   username = 'denverdelamasa', 
@@ -49,31 +68,88 @@ export default function ContributionGraph({
   const [currentStreak, setCurrentStreak] = useState(0);
   const [longestStreak, setLongestStreak] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
+  // Memoized responsive detection
   useEffect(() => {
-    // Check if device is mobile
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
     checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
     
+    // Throttle resize events for better performance
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(checkIsMobile, 100);
+    };
+    
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', checkIsMobile);
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
     };
   }, []);
 
-  const fetchData = useCallback(async () => {
-    // Check cache first
+  // Improved streak calculation with edge cases handled
+  const calculateStreaks = useCallback((contributions: ContributionDay[]) => {
+    if (!contributions.length) return;
+
+    let current = 0;
+    let longest = 0;
+    let tempLongest = 0;
+    
+    // Calculate current streak (most recent consecutive days with contributions)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    // Sort by date descending for current streak calculation
+    const sortedByRecent = [...contributions].sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+    // Calculate current streak from most recent day backwards
+    for (const day of sortedByRecent) {
+      const dayDate = new Date(day.date);
+      if (dayDate > today) continue; // Skip future dates
+      
+      if (day.count > 0) {
+        current++;
+      } else {
+        break;
+      }
+    }
+
+    // Calculate longest streak from sorted array (chronological)
+    const sortedChronologically = [...contributions].sort((a, b) => 
+      new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+
+    for (const day of sortedChronologically) {
+      if (day.count > 0) {
+        tempLongest++;
+        longest = Math.max(longest, tempLongest);
+      } else {
+        tempLongest = 0;
+      }
+    }
+
+    setCurrentStreak(current);
+    setLongestStreak(longest);
+  }, []);
+
+  // Enhanced data fetching with better error handling and retry logic
+  const fetchData = useCallback(async (retryCount = 0) => {
     const cacheKey = `contributions-${username}`;
     const cachedData = contributionCache.get(cacheKey);
     
-    if (cachedData && (Date.now() - cachedData.timestamp) < 3600000) { // 1 hour cache
+    if (cachedData && (Date.now() - cachedData.timestamp) < CACHE_TTL) {
       setData(cachedData.data);
       setTotalContributions(cachedData.totalContributions);
       setIsLoading(false);
       calculateStreaks(cachedData.data);
+      setLastUpdated(new Date(cachedData.timestamp));
       return;
     }
 
@@ -118,118 +194,71 @@ export default function ContributionGraph({
         week => week.contributionDays
       );
 
-      const mapLevel = (level: string): number => {
-        switch (level) {
-          case 'NONE': return 0;
-          case 'FIRST_QUARTILE': return 1;
-          case 'SECOND_QUARTILE': return 2;
-          case 'THIRD_QUARTILE': return 3;
-          case 'FOURTH_QUARTILE': return 4;
-          default: return 0;
-        }
+      // Precompute level mapping for better performance
+      const levelMap: { [key: string]: number } = {
+        'NONE': 0,
+        'FIRST_QUARTILE': 1,
+        'SECOND_QUARTILE': 2,
+        'THIRD_QUARTILE': 3,
+        'FOURTH_QUARTILE': 4
       };
 
-      // Add additional metadata for each day
       const contributions: ContributionDay[] = contributionDays.map(day => {
         const date = new Date(day.date);
         return {
           date: day.date,
           count: day.contributionCount,
-          level: mapLevel(day.contributionLevel),
+          level: levelMap[day.contributionLevel] || 0,
           month: date.toLocaleString('default', { month: 'short' }),
           weekDay: date.getDay()
         };
       });
 
-      // Cache the data
+      const timestamp = Date.now();
+      manageCacheSize();
       contributionCache.set(cacheKey, {
         data: contributions,
         totalContributions: user.contributionsCollection.contributionCalendar.totalContributions,
-        timestamp: Date.now()
+        timestamp
       });
 
       setData(contributions);
       setTotalContributions(user.contributionsCollection.contributionCalendar.totalContributions);
       calculateStreaks(contributions);
+      setLastUpdated(new Date(timestamp));
     } catch (err) {
       console.error('Error fetching GitHub contributions:', err);
+      
+      // Retry logic for transient errors
+      if (retryCount < 2) {
+        setTimeout(() => fetchData(retryCount + 1), 1000 * (retryCount + 1));
+        return;
+      }
+      
       setError(err instanceof Error ? err.message : 'An error occurred while fetching contributions');
     } finally {
       setIsLoading(false);
     }
-  }, [username]);
+  }, [username, calculateStreaks]);
 
-  const calculateStreaks = (contributions: ContributionDay[]) => {
-    let current = 0;
-    let longest = 0;
-    let tempLongest = 0;
-    
-    // Today's date for comparison
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
-    // Iterate through contributions to calculate streaks
-    for (let i = contributions.length - 1; i >= 0; i--) {
-      const day = contributions[i];
-      
-      if (day.count > 0) {
-        tempLongest++;
-        // Check if this is the most recent day with contributions
-        if (i === contributions.length - 1) {
-          current = 1;
-          // Check previous days for current streak
-          for (let j = i - 1; j >= 0; j--) {
-            if (contributions[j].count > 0) {
-              current++;
-            } else {
-              break;
-            }
-          }
-        }
-      } else {
-        if (tempLongest > longest) {
-          longest = tempLongest;
-        }
-        tempLongest = 0;
-      }
-    }
-    
-    // Check if the last day was part of the longest streak
-    if (tempLongest > longest) {
-      longest = tempLongest;
-    }
-    
-    setCurrentStreak(current);
-    setLongestStreak(longest);
-  };
-
+  // Auto-refresh data every hour
   useEffect(() => {
     fetchData();
+    
+    const interval = setInterval(() => {
+      fetchData();
+    }, CACHE_TTL);
+    
+    return () => clearInterval(interval);
   }, [fetchData]);
 
-const getColor = (level: number): string => {
-  switch (level) {
-    case 0: return 'bg-[#100f0f]';
-    case 1: return 'bg-[#1e1e1e]';
-    case 2: return 'bg-[#0e4429]';      // GitHub dark green
-    case 3: return 'bg-[#26a641]';      // GitHub medium green
-    case 4: return 'bg-[#39d353]';      // GitHub bright green
-    default: return 'bg-[#100f0f]';
-  }
-};
+  // Memoized color function for better performance
+  const getColor = useCallback((level: number): string => {
+    return COLOR_MAP[level as keyof typeof COLOR_MAP] || COLOR_MAP[0];
+  }, []);
 
-  const handleDayHover = (day: ContributionDay) => {
-    setSelectedDay(day);
-  };
-
-  const handleDayClick = (day: ContributionDay) => {
-    setSelectedDay(day);
-    // On mobile, keep the day selected for a moment to show the tooltip
-    setTimeout(() => setSelectedDay(null), 2000);
-  };
-
-  // Group data by month for displaying month labels
-  const monthLabels = () => {
+  // Memoized month labels calculation
+  const monthLabels = useMemo(() => {
     const months: {[key: string]: boolean} = {};
     data.forEach(day => {
       if (day.month) {
@@ -237,12 +266,50 @@ const getColor = (level: number): string => {
       }
     });
     return Object.keys(months);
-  };
+  }, [data]);
 
-  // Get day of week labels
-  const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  // Enhanced day interaction handlers
+  const handleDayHover = useCallback((day: ContributionDay) => {
+    setSelectedDay(day);
+  }, []);
 
-  // Skeleton loader for the graph
+  const handleDayClick = useCallback((day: ContributionDay) => {
+    setSelectedDay(day);
+    // Auto-clear selection on mobile after delay
+    setTimeout(() => setSelectedDay(null), 3000);
+  }, []);
+
+  // Clear selection when not hovering
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false);
+    if (!isMobile) {
+      setSelectedDay(null);
+    }
+  }, [isMobile]);
+
+  // Keyboard navigation support
+  const handleKeyDown = useCallback((event: React.KeyboardEvent, day: ContributionDay) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleDayClick(day);
+    }
+  }, [handleDayClick]);
+
+  // Memoized day labels
+  const dayLabels = useMemo(() => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], []);
+
+  // Activity level calculation
+  const activityLevel = useMemo(() => {
+    if (totalContributions > 1500) return 'High';
+    if (totalContributions > 750) return 'Medium';
+    return 'Low';
+  }, [totalContributions]);
+
+  const activityPercentage = useMemo(() => {
+    return Math.min((totalContributions / 2000) * 100, 100);
+  }, [totalContributions]);
+
+  // Skeleton loader remains the same (keeping your aesthetic)
   if (isLoading) {
     return (
       <div className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 rounded-xl ${className}`}>
@@ -300,19 +367,24 @@ const getColor = (level: number): string => {
     <div 
       className={`flex flex-col items-center p-2 md:p-4 backdrop-blur-[2px] transition-all duration-200 ease hover:-translate-y-1 hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 rounded-xl ${className}`}
       onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => {
-        setIsHovering(false);
-        setSelectedDay(null);
-      }}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="flex justify-between items-start w-full mb-2">
-        <h2 className="text-base md:text-lg font-semibold text-white">
-          {username}&apos;s Contributions 
-        </h2>
+        <div className="flex flex-col">
+          <h2 className="text-base md:text-lg font-semibold text-white">
+            {username}&apos;s Contributions 
+          </h2>
+          {lastUpdated && (
+            <p className="text-xs text-gray-500 mt-1">
+              Updated {lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </p>
+          )}
+        </div>
         <button 
           onClick={() => fetchData()}
-          className="p-1 text-gray-400 hover:text-gray-300 transition-colors rounded-full"
+          className="p-1 text-gray-400 hover:text-gray-300 transition-colors rounded-full hover:bg-[#2a2a2a]"
           aria-label="Refresh data"
+          title="Refresh contributions"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -324,7 +396,7 @@ const getColor = (level: number): string => {
         {totalContributions.toLocaleString()} contributions in the last year
       </p>
 
-      {/* Stats row */}
+      {/* Enhanced stats row with better calculations */}
       <div className="grid grid-cols-3 gap-2 w-full mb-3 md:mb-4 text-xs">
         <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-1 md:px-2 rounded-lg">
           <span className="font-semibold text-white text-sm">{currentStreak}</span>
@@ -335,7 +407,7 @@ const getColor = (level: number): string => {
           <span className="text-gray-400 text-xs">Longest streak</span>
         </div>
         <div className="flex flex-col items-center bg-[#1e1e1e] py-1 px-1 md:px-2 rounded-lg">
-          <span className="font-semibold text-white text-sm">{Math.round(totalContributions / 365)}</span>
+          <span className="font-semibold text-white text-sm">{Math.round(totalContributions / data.length)}</span>
           <span className="text-gray-400 text-xs">Daily avg</span>
         </div>
       </div>
@@ -354,21 +426,23 @@ const getColor = (level: number): string => {
           <div className="relative">
             {/* Month labels */}
             <div className="flex text-[10px] md:text-xs text-gray-400 mb-1">
-              {monthLabels().map((month, i) => (
+              {monthLabels.map((month, i) => (
                 <div key={i} className="flex-1 text-center min-w-[14px] md:min-w-[16px]">{month}</div>
               ))}
             </div>
 
-            {/* Contribution grid */}
+            {/* Contribution grid with performance optimizations */}
             <div className="grid grid-flow-col grid-rows-7 gap-0.5 md:gap-1">
               {data.map(day => (
-                <div
+                <button
                   key={day.date}
-                  className={`w-2 h-2 rounded-[1px] md:rounded-[2px] cursor-pointer ${getColor(day.level)} transition-all duration-200 ${isHovering ? 'hover:scale-125 hover:shadow-sm' : ''}`}
+                  className={`w-2 h-2 rounded-[1px] md:rounded-[2px] cursor-pointer ${getColor(day.level)} transition-all duration-200 ${isHovering ? 'hover:scale-125 hover:shadow-sm' : ''} focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50`}
                   onMouseEnter={() => handleDayHover(day)}
                   onMouseLeave={() => !isMobile && setSelectedDay(null)}
                   onClick={() => isMobile && handleDayClick(day)}
+                  onKeyDown={(e) => handleKeyDown(e, day)}
                   aria-label={`${day.count} contributions on ${day.date}`}
+                  title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
                 />
               ))}
             </div>
@@ -376,37 +450,52 @@ const getColor = (level: number): string => {
         </div>
       </div>
 
-      {/* Legend */}
+      {/* Enhanced legend */}
       <div className="flex items-center mt-3 md:mt-4 text-xs">
         <span className="text-gray-400 mr-2">Less</span>
         {[0, 1, 2, 3, 4].map(level => (
           <div
             key={level}
             className={`w-2 h-2 rounded-sm mx-0.5 ${getColor(level)}`}
+            aria-label={`Contribution level ${level}`}
           />
         ))}
         <span className="text-gray-400 ml-2">More</span>
       </div>
 
-      {/* Activity level indicator */}
+      {/* Activity level indicator with smooth animation */}
       <div className="mt-3 w-full bg-[#1e1e1e] rounded-full h-2">
         <div 
-          className="bg-green-500 h-2 rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${(totalContributions / 2000) * 100 > 100 ? 100 : (totalContributions / 2000) * 100}%` }}
+          className="bg-green-500 h-2 rounded-full transition-all duration-1000 ease-out"
+          style={{ width: `${activityPercentage}%` }}
         ></div>
       </div>
       <p className="text-xs text-gray-400 mt-1 mb-2">
-        Activity level: {totalContributions > 1500 ? 'High' : totalContributions > 750 ? 'Medium' : 'Low'}
+        Activity level: {activityLevel}
       </p>
-      {/* Always visible tooltip - static inside card */}
-      <div className="w-full bg-[#1e1e1e] text-content text-xs py-2 px-3 rounded-md shadow-lg mb-3 transition-all duration-200">
+
+      {/* Enhanced tooltip with better accessibility */}
+      <div 
+        className="w-full bg-[#1e1e1e] text-content text-xs py-2 px-3 rounded-md shadow-lg mb-3 transition-all duration-200 min-h-[60px] flex items-center justify-center"
+        role="status"
+        aria-live="polite"
+      >
         {selectedDay ? (
-          <>
-            <p><strong>{selectedDay.count} contributions</strong></p>
-            <p>on {new Date(selectedDay.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
-          </>
+          <div className="text-center">
+            <p className="font-semibold text-white">{selectedDay.count} contribution{selectedDay.count !== 1 ? 's' : ''}</p>
+            <p className="text-gray-400">
+              {new Date(selectedDay.date).toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+              })}
+            </p>
+          </div>
         ) : (
-          <p className="text-center text-gray-400">{isMobile ? 'Tap a square to view details' : 'Hover over a square to view details'}</p>
+          <p className="text-center text-gray-400">
+            {isMobile ? 'Tap a square to view details' : 'Hover over a square to view details'}
+          </p>
         )}
       </div>
     </div>
