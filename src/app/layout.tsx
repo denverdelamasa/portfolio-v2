@@ -7,6 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PatternNetClient from "../components/PatternNetClient";
+import PaypalButton from "../components/PaypalButton";
 
 import { Inter, Outfit, DM_Sans, Ubuntu } from "next/font/google";
 // Configure your fonts
@@ -48,6 +49,7 @@ export default function RootLayout({
           <Footer />
         </footer>
         <PatternNetClient /> 
+        <PaypalButton />
       </body>
     </html>
   );
