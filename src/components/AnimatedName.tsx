@@ -22,19 +22,32 @@ const StyledWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 20vh; /* Use full viewport height */
-        margin: 0; /* Remove default margins */
-        padding: 0; /* Remove default padding */
+        margin: 2vh 0;
+        padding: 0;
     }
 
     .breathe-animation span {
         font-family: 'TheFont';
-        font-size: clamp(5rem, 15vw, 8rem); /* More reasonable font sizes */
+        font-size: 72px; /* Base mobile size */
         color: white;
         text-align: center;
-        line-height: 1; /* Reduce line height to minimize vertical space */
-        margin: 0; /* Remove margin from span */
+        line-height: 0.8;
+        margin: 0;
         animation: letter-breathe 3s ease-in-out infinite;
+    }
+
+    /* Tablet */
+    @media (min-width: 768px) {
+        .breathe-animation span {
+            font-size: 96px;
+        }
+    }
+
+    /* Desktop */
+    @media (min-width: 1024px) {
+        .breathe-animation span {
+            font-size: 120px;
+        }
     }
   
     @keyframes letter-breathe {
