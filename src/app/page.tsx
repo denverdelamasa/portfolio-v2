@@ -10,11 +10,11 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section className="flex flex-col lg:flex-row gap-x-2 pt-12">
-        <aside className="w-full lg:w-3/7 2xl:w-2/4 lg:sticky lg:top-0 h-fit lg:h-[100vh]">
+      <section className="flex flex-col lg:flex-row gap-x-2 pt-12 2xl:px-48">
+        <aside className="w-full lg:w-6/15 lg:sticky lg:top-0 h-fit lg:h-[100vh]">
           <ProfileCard />
         </aside>
-        <section className="w-full lg:w-4/7 2xl:w-2/4">
+        <section className="w-full lg:w-9/15">
           <Content />
         </section>
       </section>
