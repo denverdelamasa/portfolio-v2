@@ -3,6 +3,7 @@ import mern from "../../../assets/projects/mern.webp";
 import capstone from "../../../assets/projects/capstone.webp";
 import webportfolio from "../../../assets/projects/webportfolio.webp";
 import gitcardz from "../../../assets/projects/gitcardz.png";
+import blackhole from "../../../assets/projects/blackhole.png";
 
 export default function Projects() {
   return (
@@ -15,6 +16,14 @@ export default function Projects() {
           </p>
         </div>
         <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
+          <ProjectCard
+            title="BlackHole 3D - made using Spline and React"
+            description="A 3D website made using Spline and React. It features a blackhole you can interact with. This was my first time using Spline and it gave me a new perspective on how to make 3D websites."
+            imageUrl={blackhole}
+            badges={[ "Spline", "3D", "React", "Vite" ]}
+            buttonText="View Site"
+            buttonLink="https://blackhole-wyane.vercel.app"
+          />
           <ProjectCard
             title="GitCardz - custom Tailwind card collaborative wall"
             description="A fun, community-driven project where anyone can add their own profile card styled with Tailwind CSS. Think of it as a giant deck of cards — each one contributed by people from around the world."
