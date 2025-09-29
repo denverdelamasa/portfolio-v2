@@ -1,3 +1,5 @@
+
+import Head from 'next/head';
 import "../styles/globals.css";
 import "../styles/fonts.css";
 import "../styles/pattern-styled.css";
@@ -40,6 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="black" className="">
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body className={`${inter.variable} ${dmSans.variable} ${outfit.variable} ${ubuntu.variable} antialiased`}>
         <header>
           <Navbar />
