@@ -1,5 +1,7 @@
 
 import Head from 'next/head';
+import { Analytics } from "@vercel/analytics/next"
+
 import "../styles/globals.css";
 import "../styles/fonts.css";
 import "../styles/pattern-styled.css";
@@ -50,6 +52,7 @@ export default function RootLayout({
           <Navbar />
         </header>
         {children}
+        <Analytics />
         <footer>
           <Footer />
         </footer>
