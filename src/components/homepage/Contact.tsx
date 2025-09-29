@@ -2,7 +2,7 @@ import ContactForm from "./contact/ContactForm";
 
 export default function Contact() {
   return (
-    <div id="contact" className="hero h-fit w-full pattern-styled">
+    <div id="contact" className="hero h-fit w-full">
       <div className="hero-content text-center flex flex-col md:flex-row gap-10 w-full h-fit">
         <div className="w-full md:w-1/2 text-left items-left justify-left align-middle">
           <h1 className="mt-24 lg:mt-auto text-7xl md:text-8xl font-bold mb-4">
