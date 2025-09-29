@@ -38,8 +38,3 @@ export default function Hero() {
     </div>
     );
   }
-{/*
-  Breathe animation – Variable Font, HTML 
-  Code by - Type Forward  
-  Link: https://codepen.io/typeforward/pen/wvNgEqy  
-*/}

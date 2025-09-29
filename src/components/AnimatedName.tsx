@@ -48,3 +48,8 @@ const StyledWrapper = styled.div`
     }
 `
 export default AnimatedName;
+{/*
+  Breathe animation – Variable Font, HTML 
+  Code by - Type Forward  
+  Link: https://codepen.io/typeforward/pen/wvNgEqy  
+*/}
