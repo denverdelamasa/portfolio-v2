@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <div className="hero h-full w-full">
       <div className="hero-content text-center">
-        <div className="max-w-[290px] md:max-w-[300px] lg:max-w-4xl text-center items-center justify-center align-middle z-0">
+        <div className="max-w-[290px] md:max-w-sm xl:max-w-4xl text-center items-center justify-center align-middle z-0">
           <p className="text-2xl">
             Hi! I&apos;m
           </p>
@@ -23,7 +23,7 @@ export default function Hero() {
           <p className="text-xs lg:text-lg mx-auto mb-4 max-w-xl">
             I build responsive websites, make character illustrations, and solve tech problems.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-1 gap-2 w-auto md:w-xl mx-auto">
+          <div className="flex flex-wrap gap-2 w-full mx-auto">
             <Link href="/#projects" className="btn btn-primary btn-md m-auto ">
               <i className="bi bi-box-arrow-in-down"></i>
               My Works
