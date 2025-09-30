@@ -2,6 +2,7 @@ import AdvancementCard from "./cards/AdvancementCard";
 import freecodecamp from "../../../assets/advancements/freecodecamp.webp";
 import kodekloud from "../../../assets/advancements/kodekloud.webp";
 import threejs from "../../../assets/advancements/threejs.webp";
+import blogsite from "../../../assets/advancements/blogsite.png";
 
 export default function Contributing() {
   return (
@@ -13,6 +14,12 @@ export default function Contributing() {
               Progress & Growth
             </p>
           </div>
+          <AdvancementCard
+            title="Blog Site - where I can post my learnings in Detail"
+            description="For the past month I have dramatically improved my web design skills, and so i wanted it to apply it in a project. I am currently working on building a blog site where I can share my knowledge and experiences with others. This will also help me to improve my writing skills and to document my learning journey."
+            imageUrl={blogsite}
+            dateStarted="Started at Sept 2025"
+          />
           <AdvancementCard
             title="freecodecamp.org - Responsive Web Design Certification"
             description="Currently working on how to further improve my CSS knowledge by revisiting the fundamentals of creating classic HTML5 website"
