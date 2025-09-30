@@ -20,7 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div className="card md:card-side backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
-      <figure className="mx-6 md:mx-auto md:mt-[1em] md:ml-[1em] md:w-3/10 md:h-32 justify-center overflow-hidden">
+      <figure className="mx-6 mt-6 md:mx-auto md:mt-[1em] md:ml-[1em] md:w-3/10 md:h-32 justify-center overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
