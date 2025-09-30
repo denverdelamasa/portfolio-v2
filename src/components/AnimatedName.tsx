@@ -28,7 +28,7 @@ const StyledWrapper = styled.div`
 
     .breathe-animation span {
         font-family: 'TheFont';
-        font-size: 72px; /* Base mobile size */
+        font-size: 56px; /* Base mobile size */
         color: white;
         text-align: center;
         line-height: 0.8;
@@ -39,14 +39,14 @@ const StyledWrapper = styled.div`
     /* Tablet */
     @media (min-width: 768px) {
         .breathe-animation span {
-            font-size: 96px;
+            font-size: 86px;
         }
     }
 
     /* Desktop */
     @media (min-width: 1024px) {
         .breathe-animation span {
-            font-size: 120px;
+            font-size: 108px;
         }
     }
   
