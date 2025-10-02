@@ -81,6 +81,10 @@ export default function ProfileCard() {
                 <i className="bi bi-file-earmark-easel"></i>
                 Cosmos
               </a>
+              <a className="btn btn-xs btn-outline" href="https://stackoverflow.com/users/31616268/wyane" target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-stack-overflow"></i>
+                Stack overflow
+              </a>
             </div>
         </div>
       </div>
