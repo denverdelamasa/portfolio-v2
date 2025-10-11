@@ -18,10 +18,11 @@ export default function Home() {
             <Content />
           </section>
         </div>
-
-        <div className="flex h-fit w-full text-center justify-center items-center">
-          <Contact />
-        </div>
+        {/* 
+          <div className="flex h-fit w-full text-center justify-center items-center">
+            <Contact />
+          </div>
+        */}
       </section>
     </main>
   );
