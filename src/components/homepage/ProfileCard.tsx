@@ -36,7 +36,7 @@ export default function ProfileCard() {
             <p className="mb-4">
                 Passionate about designing and building websites, creating illustrations, and providing tech support.
             </p>
-
+            {/*
             <div className="card-actions justify-center mb-4 w-full">
               <a 
                 href="/resume.pdf" 
@@ -48,6 +48,7 @@ export default function ProfileCard() {
                 Resume
               </a>
             </div>
+            */}
             
             <div className="flex flex-wrap justify-center gap-4">
               <a className="btn btn-xs btn-outline" href="https://www.instagram.com/wanedanvers/" target="_blank" rel="noopener noreferrer">
