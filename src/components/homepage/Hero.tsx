@@ -20,8 +20,8 @@ export default function Hero() {
               Tech Support
             </span>.
           </h2>
-          <p className="text-xs lg:text-lg mx-auto mb-4 max-w-xl">
-            I build responsive websites, make character illustrations, and solve tech problems.
+          <p className="text-xs lg:text-md mx-auto mb-4 max-w-xl">
+            I build responsive websites, draw character illustrations, and solve tech problems. I aspire to become better at what I do, so I always do my best to learn as best as I could. 
           </p>
           <div className="flex flex-wrap gap-2 w-full mx-auto">
             <Link href="/#projects" className="btn btn-primary btn-md m-auto ">

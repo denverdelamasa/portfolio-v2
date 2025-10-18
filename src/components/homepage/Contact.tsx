@@ -9,7 +9,7 @@ export default function Contact() {
             Let&apos;s work <span className="hover:text-red-500 transition-colors duration-200 ease-in">together</span>!
           </h1>
           <p className="text-sm lg:text-lg lg:max-w-lg font-thin mb-2">
-            Interested in working together? I&apos;ll looking for opportunities to join a team and grow—let’s connect!
+            Interested in working together? I&apos;m looking for opportunities to join a team and grow—let’s connect!
           </p>
         </div>
         <div className="w-full md:w-1/2 items-center justify-center align-middle">
