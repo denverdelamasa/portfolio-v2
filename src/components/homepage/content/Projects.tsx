@@ -4,6 +4,7 @@ import capstone from "../../../assets/projects/capstone.webp";
 import webportfolio from "../../../assets/projects/webportfolio.webp";
 import gitcardz from "../../../assets/projects/gitcardz.png";
 import blackhole from "../../../assets/projects/blackhole.png";
+import blog from "../../../assets/projects/blog.png";
 
 export default function Projects() {
   return (
@@ -16,6 +17,14 @@ export default function Projects() {
           </p>
         </div>
         <div className="grid grid-cols-1 w-full mt-8 gap-y-18">
+          <ProjectCard
+            title="Blog Site - where I can post my learnings in Detail"
+            description="For the past month I have dramatically improved my web design skills, and so i wanted it to apply it in a project. I am currently working on building a blog site where I can share my knowledge and experiences with others. This will also help me to improve my writing skills and to document my learning journey."
+            imageUrl={blog}
+            badges={[ "Blog", "3D", "Next", "Design", "Spline" ]}
+            buttonText="View Site"
+            buttonLink="https://blog-denverdelamasa.vercel.app"
+          />
           <ProjectCard
             title="BlackHole 3D - made using Spline and React"
             description="A 3D website made using Spline and React. It features a blackhole you can interact with. This was my first time using Spline and it gave me a new perspective on how to make 3D websites."

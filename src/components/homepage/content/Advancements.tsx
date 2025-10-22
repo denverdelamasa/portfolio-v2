@@ -15,12 +15,6 @@ export default function Contributing() {
             </p>
           </div>
           <AdvancementCard
-            title="Blog Site - where I can post my learnings in Detail"
-            description="For the past month I have dramatically improved my web design skills, and so i wanted it to apply it in a project. I am currently working on building a blog site where I can share my knowledge and experiences with others. This will also help me to improve my writing skills and to document my learning journey."
-            imageUrl={blogsite}
-            dateStarted="Started at Sept 2025"
-          />
-          <AdvancementCard
             title="freecodecamp.org - Responsive Web Design Certification"
             description="Currently working on how to further improve my CSS knowledge by revisiting the fundamentals of creating classic HTML5 website"
             imageUrl={freecodecamp}
