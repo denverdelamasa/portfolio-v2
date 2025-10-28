@@ -2,7 +2,7 @@ import AdvancementCard from "./cards/AdvancementCard";
 import freecodecamp from "../../../assets/advancements/freecodecamp.webp";
 import kodekloud from "../../../assets/advancements/kodekloud.webp";
 import threejs from "../../../assets/advancements/threejs.webp";
-import blogsite from "../../../assets/advancements/blogsite.png";
+import CSSNCII from "../../../assets/advancements/CSS NCII.png";
 
 export default function Contributing() {
   return (
@@ -14,6 +14,12 @@ export default function Contributing() {
               Progress & Growth
             </p>
           </div>
+          <AdvancementCard
+            title="CSS National Certificate II - TESDA Online Program"
+            description="To further enhance my skills and learn more things about the line of work that I want to do, I've decided to enroll on TESDA's Online Program to prepare myself for the training, and Assessment"
+            imageUrl={CSSNCII}
+            dateStarted="Started at July 2025"
+          />
           <AdvancementCard
             title="freecodecamp.org - Responsive Web Design Certification"
             description="Currently working on how to further improve my CSS knowledge by revisiting the fundamentals of creating classic HTML5 website"
