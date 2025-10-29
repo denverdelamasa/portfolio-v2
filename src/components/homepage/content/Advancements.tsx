@@ -18,7 +18,7 @@ export default function Contributing() {
             title="CSS National Certificate II - TESDA Online Program"
             description="To further enhance my skills and learn more things about the line of work that I want to do, I've decided to enroll on TESDA's Online Program to prepare myself for the training, and Assessment"
             imageUrl={CSSNCII}
-            dateStarted="Started at July 2025"
+            dateStarted="Started at Oct 2025"
           />
           <AdvancementCard
             title="freecodecamp.org - Responsive Web Design Certification"
