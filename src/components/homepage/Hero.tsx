@@ -10,13 +10,13 @@ export default function Hero() {
           </p>
           <AnimatedName />
           <h2 className="text-xl lg:text-4xl font-bold mb-4">
-            <span className="hover:text-red-500 transition-colors duration-200 ease-in">
+            <span className="hover:text-red-500 font-bold hover:font-thin transition-all duration-200 ease-in">
               Web Developer
             </span>.
-            <span className="hover:text-red-500 transition-colors duration-200 ease-in">
+            <span className="hover:text-red-500 font-bold hover:font-thin transition-all duration-200 ease-in">
               Illustrator
             </span>.
-            <span className="hover:text-red-500 transition-colors duration-200 ease-in">
+            <span className="hover:text-red-500 font-bold hover:font-thin transition-all duration-200 ease-in">
               Tech Support
             </span>.
           </h2>
