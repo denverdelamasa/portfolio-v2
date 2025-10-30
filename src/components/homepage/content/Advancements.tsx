@@ -3,6 +3,7 @@ import freecodecamp from "../../../assets/advancements/freecodecamp.webp";
 import kodekloud from "../../../assets/advancements/kodekloud.webp";
 import threejs from "../../../assets/advancements/threejs.webp";
 import CSSNCII from "../../../assets/advancements/CSS NCII.png";
+import cisco from "../../../assets/advancements/cisco-start.png";
 
 export default function Contributing() {
   return (
@@ -14,6 +15,12 @@ export default function Contributing() {
               Progress & Growth
             </p>
           </div>
+          <AdvancementCard
+            title="Cisco Networking Academy - Networking Basics"
+            description="I've been aware that I have a massive weakness in Network related skills, especially setting up a basic Network Station, and the basics of Networking, so I've decided to enroll in this free course by Cisco."
+            imageUrl={cisco}
+            dateStarted="Started at Oct 2025"
+          />
           <AdvancementCard
             title="CSS National Certificate II - TESDA Online Program"
             description="To further enhance my skills and learn more things about the line of work that I want to do, I've decided to enroll on TESDA's Online Program to prepare myself for the training, and Assessment"
