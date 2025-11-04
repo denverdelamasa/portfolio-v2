@@ -4,6 +4,7 @@ import kodekloud from "../../../assets/advancements/kodekloud.webp";
 import threejs from "../../../assets/advancements/threejs.webp";
 import CSSNCII from "../../../assets/advancements/CSS NCII.png";
 import cisco from "../../../assets/advancements/cisco-start.png";
+import CTM from "../../../assets/advancements/cyber-threat-management.png";
 
 export default function Contributing() {
   return (
@@ -15,6 +16,12 @@ export default function Contributing() {
               Progress & Growth
             </p>
           </div>
+          <AdvancementCard
+            title="Cisco Networking Academy - Cyber Threat Management"
+            description="I saw a post from DICT Facebook page offering free limited online course so I've decided to give it a go, a free certificate won't hurt..."
+            imageUrl={CTM}
+            dateStarted="Started at Nov 2025"
+          />
           <AdvancementCard
             title="Cisco Networking Academy - Networking Basics"
             description="I've been aware that I have a massive weakness in Network related skills, especially setting up a basic Network Station, and the basics of Networking, so I've decided to enroll in this free course by Cisco."
