@@ -16,7 +16,7 @@ const AdvancementCard: React.FC<AdvancementCardProps> = ({
 }) => {
   return (
     <div className="card md:card-side backdrop-blur-[2px] hover:backdrop-brightness-130 hover:backdrop-saturate-150 active:backdrop-brightness-130 active:backdrop-saturate-150 transform hover:-translate-y-1 active:-translate-y-1 transition-all duration-300 ease-in-out hover:shadow-xl rounded-xl">
-      <figure className="m-8 md:w-3/10 md:h-32 justify-start overflow-hidden">
+      <figure className="m-8 md:w-3/10 md:h-auto justify-start overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
