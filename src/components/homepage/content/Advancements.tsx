@@ -5,6 +5,7 @@ import threejs from "../../../assets/advancements/threejs.webp";
 import CSSNCII from "../../../assets/advancements/CSS NCII.png";
 import cisco from "../../../assets/advancements/cisco-start.png";
 import CTM from "../../../assets/advancements/cyber-threat-management.png";
+import DSSA from "../../../assets/advancements/digital-safety-and-security-awareness-badge-large.png";
 
 export default function Contributing() {
   return (
@@ -17,10 +18,16 @@ export default function Contributing() {
             </p>
           </div>
           <AdvancementCard
+            title="Cisco Networking Academy - Digital Safety and Security Awareness"
+            description="Cisco, in collaboration with OpenEDG, certifies that the learner has achieved proficiency in essential digital safety and security practices. Through this entry-level course, the learner has acquired essential skills to identify digital threats, safeguard personal information, protect personal devices, and cultivate healthy digital habits."
+            imageUrl={DSSA}
+            dateStarted="Finished: Dec 10 2025"
+          />
+          <AdvancementCard
             title="Cisco Networking Academy - Cyber Threat Management"
             description="I saw a post from DICT Facebook page offering free limited online course so I've decided to give it a go, a free certificate won't hurt..."
             imageUrl={CTM}
-            dateStarted="Started at Nov 2025"
+            dateStarted="Finished: Nov 2025"
           />
           <AdvancementCard
             title="Cisco Networking Academy - Networking Basics"
